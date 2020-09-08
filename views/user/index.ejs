@@ -4,31 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<%=csrfToken%>">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    <meta name="csrf-token" content="<%=csrfToken%>">
 </head>
 
 <body>
-    <h1>Custom Form Builder</h1>
+    <h1 id="head">Custom Form Builder</h1>
+    <p id="headLogo">Logo - <input type="file" id="image" accept="image/*"></p>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            Background - <input type="color" id="bgcolor" value="#3b8cb5">
+        </li>
+        <li>
+            Add Background Image - <input type="file" id="image1" accept="image/*">
+        </li>
+        <li class="nav-item">
+            Text - <input type="color" id="color">
+        </li>
+        <li class="nav-item">
+            Font Size - <input type="number" value="10" min="10" id="fsize">
+        </li>
+        <li class="nav-item">
+            Font Family - <select name="font" id="ffamily">
+                <option value="Algerian" style="font-family: Algerian;">Algerian</option>
+                <option value="Arial" style="font-family: Arial;">Arial</option>
+                <option value="Brush Script MT" style="font-family: Brush Script MT;">Brush Script MT</option>
+                <option value="Calibri" style="font-family: Calibri;">Calibri</option>
+                <option value="Cambria" style="font-family: Cambria;">Cambria</option>
+                <option value="Copperplate" style="font-family: Copperplate;">Copperplate</option>
+                <option value="Didot" style="font-family: Didot;">Didot</option>
+                <option value="Garamond" style="font-family: Garamond;">Garamond</option>
+                <option value="Lucida Bright" style="font-family: Lucida Bright;">Lucida Bright</option>
+                <option value="Monaco" style="font-family: Monaco;">Monaco</option>
+                <option value="Optima" style="font-family: Optima;">Optima</option>
+                <option value="Times New Roman" style="font-family: Times New Roman;">Times New Roman</option>
+            </select>
+        </li>
+        <li>
+            <button onclick="apply()">Apply</button>
+        </li>
+    </ul>
     <div class="content">
         <input type="text" placeholder="Add Heading" id='heading'><button onclick="addHeading()" class="btn-primary btn">ADD+</button><br>
+        <textarea name="formDesc" id="formDesc" cols="30" rows="4" placeholder="Add form Desc"></textarea><button class="btn  btn-primary btn-lg" onclick="addDesc()">ADD+</button><br>
         <input type="text" placeholder="Add Description" name="desc" id="desc">
         <select name="options" id="options">
             <option value="text">TextBox</option>
             <option value="checkbox">Checkbox</option>
             <option value="radio">Radio</option>
             <option value="textarea">Textarea</option>
+            <option value="file">File</option>
+            <option value="date">Date</option>
+            <option value="time">Time</option>
+            <option value="datetime-local">Date & Time</option>
         </select>
 
         <button onclick="add()" class="btn-primary btn">ADD+</button>
         <div id="customForm">
             <p>--ADD CONTENT--</p>
         </div>
-        <div>
-            <button class="btn btn-success" onclick="submit()">Create</button>
-        </div>
+        <button class="btn btn-success" onclick="submit()">Submit</button>
+        <!-- <a href="preview.html" target="_blank">Preview</a> -->
 
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

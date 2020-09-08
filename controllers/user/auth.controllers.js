@@ -42,7 +42,7 @@ exports.postSignIn = async(req, res, next) => {
         }
         return req.session.save(err => {
             if (err) throw new Error(err);
-            return res.redirect('/user/');
+            return res.redirect('/user/form');
         });
     } catch (err) {
         next(err);
@@ -62,7 +62,7 @@ exports.postSignUp = async(req, res, next) => {
         req.session.user = admin;
         return req.session.save(err => {
             if (err) throw new Error(err);
-            return res.redirect('/user/');
+            return res.redirect('/user/form');
         });
     } catch (err) {
         next(err);
