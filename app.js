@@ -20,20 +20,22 @@ const app = express();
 
 const indexRoutes = require('./routes/index');
 const errorController = require('./controllers/error.controllers');
+const fileUploader = require('./middleware/fileUploader');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
+
+app.use(bodyParser.json({ limit: "5mb" }));
+app.use(bodyParser.urlencoded({ limit: "5mb", extended: true, parameterLimit: 5000 }));
+
+app.use(fileUploader);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(helmet());
 app.use(compression());
 app.use(flash());
 app.use(morgan((process.env.NODE_ENV === 'production') ? 'combined' : 'dev'));
-
-
-app.use(bodyParser.json({ limit: "5mb" }));
-app.use(bodyParser.urlencoded({ limit: "5mb", extended: true, parameterLimit: 5000 }));
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = Number(process.env.PORT) || 3000;
 

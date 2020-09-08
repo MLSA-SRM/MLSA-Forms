@@ -7,12 +7,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background-color: <%=form.backgroundColor%> !important;
+            font-size: <%=form.fontSize%>px !important;
+            font-family: '<%=form.fontFamily%>' !important;
+            color: <%=form.textColor%> !important;
+        }
+    </style>
 </head>
 
 <body>
     <h1>
         <%= form.heading %>
     </h1>
+    <p>
+        <%=form.description%>
+    </p>
     <div class="content">
         <form id="customForm" method="POST" action="/forms/<%= form.formCode%>">
             <%- form.html %>

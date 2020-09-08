@@ -1,94 +1,116 @@
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-    }
-    
-    html {
-        overflow: hidden;
-    }
-    
-    body {
-        overflow-y: scroll;
-        padding: 2% 5%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-image: radial-gradient( circle farthest-corner at 12.3% 19.3%, rgba(85, 88, 218, 1) 0%, rgba(95, 209, 249, 1) 100.2%);
-    }
-    
-    .contentOptions {
-        margin: 1% auto;
-    }
-    
-    h1 {
-        color: #fff;
-        text-align: center;
-        margin: 3%;
-    }
-    
-    .content {
-        border-radius: 16px;
-        padding: 5% 3%;
-        text-align: center;
-        margin: auto 25%;
-        border: solid 1px #bbb;
-        background-color: #fff;
-    }
-    
-    textarea {
-        width: 100%;
-    }
-    
-    #customForm {
-        padding: 5%;
-        text-align: justify;
-        text-transform: capitalize;
-        background-color: #fff;
-        border-radius: 16px;
-    }
-    
-    #customForm p {
-        text-align: center;
-    }
-    
-    #heading {
-        margin-bottom: 5%;
-        text-align: center;
-    }
-    
-    #heading+button {
-        margin-left: 5%;
-    }
-    
-    #customForm input[type=text] {
-        margin: 1% auto;
-        width: 80%;
-    }
-    
-    input[type=text] {
-        border-radius: 16px;
-        border-width: 1px;
-        text-align: center;
-    }
-    
-    #customForm button {
-        width: 15%;
-        margin-left: 5%;
-    }
-    
-    .btn-danger {
-        width: auto !important;
-    }
-    
-    .contentItems {
-        padding: 5%;
-        border: solid 1px #bbb;
-        border-radius: 16px;
-        margin: 3% auto;
-        text-align: justify;
-    }
-    
-    .textF {
-        width: 100% !important;
-    }
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow-y: scroll;
+    padding: 2% 5%;
+    background-color: #3b8cb5;
+}
+
+.contentOptions {
+    margin: 1% auto;
+}
+
+.contentItems>button,
+.q {
+    font-family: "Segoe UI" !important;
+}
+
+h1,
+#headLogo {
+    color: #fff;
+    text-align: center;
+    margin: 1%;
+}
+
+#headLogo {
+    margin-left: 8%;
+}
+
+.content {
+    border-radius: 16px;
+    padding: 5% 3%;
+    text-align: center;
+    margin: auto 25%;
+    border: solid 1px #bbb;
+    background-color: #fff;
+}
+
+textarea {
+    width: 100%;
+}
+
+#customForm {
+    padding: 5%;
+    text-align: justify;
+    text-transform: capitalize;
+    background-color: #fff;
+    border-radius: 16px;
+}
+
+#customForm p {
+    text-align: center;
+}
+
+#heading {
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+#heading+button {
+    margin-left: 5%;
+}
+
+#customForm input[type=text] {
+    margin: 1% auto;
+    width: 80%;
+    /* border-style: none; */
+}
+
+.inputF {
+    border-style: none;
+    outline-style: none;
+    border-radius: 16px;
+    padding-left: 2%;
+}
+
+.inputF:focus {
+    outline-style: none;
+    border-style: solid;
+}
+
+input[type=text] {
+    border-radius: 16px;
+    border-width: 1px;
+    text-align: center;
+    outline-style: none;
+}
+
+#customForm button {
+    width: 15%;
+    margin-left: 5%;
+}
+
+.btn-danger {
+    width: auto !important;
+}
+
+.contentItems {
+    padding: 5%;
+    border: solid 1px #bbb;
+    border-radius: 16px;
+    margin: 3% auto;
+    text-align: justify;
+}
+
+.textF {
+    width: 100% !important;
+}

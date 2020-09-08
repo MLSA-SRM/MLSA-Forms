@@ -2,44 +2,74 @@ module.exports = (array) => {
     let html = "";
     let headings = [];
     array.forEach(e => {
+        let name = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
         switch (e.option) {
             case 'text':
-                headings.push({ headings: e.desc, type: 'text', name: e.desc.replace(/[^A-Z0-9]/ig, "_") })
+                let nameText = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                headings.push({ headings: e.desc, type: 'text', name: nameText })
                 html += `<div class="contentItems">
                 ${e.desc}<br>
-                <input type="text" name="${e.desc.replace(/[^A-Z0-9]/ig, "_")}" id="0" class="textF">
+                <input type="text" name="${nameText}" id="0" class="textF">
                 </div>`;
                 break;
             case "textarea":
-                headings.push({ headings: e.desc, type: 'text', name: e.desc.replace(/[^A-Z0-9]/ig, "_") })
+                let nameTextArea = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                headings.push({ headings: e.desc, type: 'text', name: nameTextArea })
                 html += `<div class="contentItems">
-                    ${e.desc}<br><textarea rows="5" id="3" name="${e.desc.replace(/[^A-Z0-9]/ig, "_")}"></textarea>
+                    ${e.desc}<br><textarea rows="5" id="3" name="${nameTextArea}"></textarea>
                 </div>`
                 break;
             case 'radio':
-                let temp = { headings: e.desc, type: 'text', name: e.desc.replace(/[^A-Z0-9]/ig, "_"), options: [] };
+                let nameRadio = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                let temp = { headings: e.desc, type: 'text', name: nameRadio, options: [] };
                 let t = `<div class="contentItems">
                 ${e.desc}<br>`;
                 let x = '';
                 e.noOfItem.forEach(p => {
                     temp.options.push(p);
-                    x += `<input type="radio" class="2" name="${e.desc.replace(/[^A-Z0-9]/ig, "_")}" value="${p}">&nbsp;&nbsp;${p}<br>`;
+                    x += `<input type="radio" class="2" name="${nameRadio}" value="${p}">&nbsp;&nbsp;${p}<br>`;
                 });
                 html += t + x + '</div>';
                 headings.push(temp);
                 break;
             case 'checkbox':
-                let temp1 = { headings: e.desc, type: 'array', name: e.desc.replace(/[^A-Z0-9]/ig, "_"), options: [] };
+                let nameCheckbox = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                let temp1 = { headings: e.desc, type: 'array', name: nameCheckbox, options: [] };
                 let q = `<div class="contentItems">
                 ${e.desc}<br>`;
                 let v = '';
                 e.noOfItem.forEach(p => {
                     temp1.options.push(p);
-                    v += `<input type="checkbox" class="1" name="${e.desc.replace(/[^A-Z0-9]/ig, "_")}" value="${p}">&nbsp;&nbsp;${p}
+                    v += `<input type="checkbox" class="1" name="${nameCheckbox}" value="${p}">&nbsp;&nbsp;${p}
                     <br>`;
                 });
                 headings.push(temp1);
                 html += q + v + '</div>';
+                break;
+            case 'date':
+                let nameDate = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                headings.push({ headings: e.desc, type: 'date', name: nameDate })
+                html += `<div class="contentItems">
+                    ${e.desc}<br>
+                    <input type="date" name="${nameDate}" id="0" class="textF">
+                    </div>`;
+                break;
+            case 'datetime-local':
+                let nameDateTime = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                headings.push({ headings: e.desc, type: 'datetime-local', name: nameDateTime })
+                html += `<div class="contentItems">
+                        ${e.desc}<br>
+                        <input type="datetime-local" name="${nameDateTime}" id="0" class="textF">
+                        </div>`;
+                break;
+            case 'time':
+                let nameTime = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                headings.push({ headings: e.desc, type: 'time', name: nameTime })
+                html += `<div class="contentItems">
+                            ${e.desc}<br>
+                            <input type="time" name="${nameTime}" id="0" class="textF">
+                            </div>`;
+                break;
             default:
                 console.log(e);
         }
