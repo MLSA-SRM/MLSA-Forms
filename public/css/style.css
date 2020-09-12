@@ -3,15 +3,44 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-}
+    color: #fff;
 
+}
+.nav-item{
+    margin: auto 5px;
+}
+.sidepanel  {
+    width: 0;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 17px;
+    background-color:  #f8f8f8;
+    color  : #111;
+    overflow-x: hidden;
+    padding:5% 2%;
+  }
+  
+  .sidepanel li {
+    margin: 10px 0;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .openbtn:hover {
+    background-color:#444;
+  }
+  
 html {
     overflow: hidden;
 }
-
+.formContent{
+    padding:2% 4% ;
+}
 body {
     overflow-y: scroll;
-    padding: 2% 5%;
     background-color: #3b8cb5;
 }
 
@@ -26,7 +55,6 @@ body {
 
 h1,
 #headLogo {
-    color: #fff;
     text-align: center;
     margin: 1%;
 }
@@ -35,25 +63,29 @@ h1,
     margin-left: 8%;
 }
 
-.content {
+.addData {
     border-radius: 16px;
-    padding: 5% 3%;
+    padding:3% 4%;
     text-align: center;
     margin: auto 25%;
     border: solid 1px #bbb;
     background-color: #fff;
 }
-
+.info{
+    font-size:14px;
+    color: #000;
+}
 textarea {
     width: 100%;
 }
-
-#customForm {
+.contentItems {
+    margin: 2% 25%;
     padding: 5%;
     text-align: justify;
     text-transform: capitalize;
-    background-color: #fff;
+    border: solid 1px #bbb;
     border-radius: 16px;
+    background-color: #fff;
 }
 
 #customForm p {
@@ -87,7 +119,7 @@ textarea {
     border-style: solid;
 }
 
-input[type=text] {
+input[type=text],input[type=number]{
     border-radius: 16px;
     border-width: 1px;
     text-align: center;
@@ -95,22 +127,42 @@ input[type=text] {
 }
 
 #customForm button {
-    width: 15%;
-    margin-left: 5%;
+    margin-left: 3%;
 }
 
 .btn-danger {
     width: auto !important;
 }
-
-.contentItems {
-    padding: 5%;
-    border: solid 1px #bbb;
-    border-radius: 16px;
-    margin: 3% auto;
-    text-align: justify;
+.btn-center{
+    margin: 1%;
+    text-align:center;
 }
-
+.row{
+    margin-bottom:5%;
+}
+input[type=radio],input[type=checkbox]{
+    margin:2%;
+}
 .textF {
     width: 100% !important;
+}
+#customForm{
+    color: #000;
+}
+#fsize{
+    width: 70%;
+}
+#ffamily{
+    width:65%;
+}
+nav li:hover{
+    background-color: none;
+}
+
+.contentItems > input[type=text],.contentItems>textarea{
+    width : 88% !important;
+    vertical-align: bottom;
+} 
+.contentItems>textarea{
+    margin-bottom:0 ;
 }
