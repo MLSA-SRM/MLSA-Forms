@@ -50,13 +50,27 @@ function addOption(e) {
     // console.log(e.id);
     // console.log();
 }
-
-function apply() {
+function openNav() {
+    var x = document.getElementById("mySidepanel");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        x.style.width = "22vw";
+    } else {
+        x.style.width = "0";
+        x.style.display = "none";
+    }
+}
+function apply(){
     document.querySelector('#customForm').style.color = document.getElementById('color').value;
-    document.querySelector('body').style.backgroundColor = document.getElementById('bgcolor').value;
-    document.querySelector('#customForm').style.fontSize = document.getElementById('fsize').value + "px";
+    document.querySelector('#customForm').style.fontSize = document.getElementById('fsize').value+"px";
     document.querySelector('#customForm').style.fontFamily = document.getElementById('ffamily').value;
-    document.querySelector('body').style.backgroundImage = "url(document.getElementById('image').value)";
+    if(document.getElementById('image1').value == ""){
+        document.querySelector('body').style.backgroundImage = "url()";
+        document.querySelector('body').style.backgroundColor = document.getElementById('bgcolor').value;
+    }else{
+        document.querySelector('body').style.backgroundColor = "#3b8cb5";
+        document.querySelector('body').style.backgroundImage = "url(document.getElementById('image1').value)";
+    }
     printData();
 }
 
@@ -64,19 +78,19 @@ function printData() {
     s = "";
     arr.map(function(item, index) {
         if (item.option === 'radio' || item.option === 'checkbox') {
-            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type='text' placeholder='Add Option' class=" + index + item.desc + "><button id=" + index + item.desc + " class='" + index + " btn btn-primary' onclick='addOption(this)'>Add+</button><br>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type='text' placeholder='Add Option' class='" + index + item.desc + "'><button id=" + index + item.desc + " class='" + index + " btn btn-primary' onclick='addOption(this)'><i class='fas fa-plus'></i></button><br>");
             if (item.noOfItem != []) {
                 item.noOfItem.map(function(items, oindex) {
-                    s += ("<input type =" + item.option + " class=" + index + " name=" + index + item.desc + "></input>      " + items + "<button value=" + oindex + " id=" + index + " class='btn btn-sm btn-danger' onclick='deleteItem(this)'>Remove</button><br>");
+                    s += ("<input type =" + item.option + " class=' " + index + "' name=" + index + item.desc + "></input>      " + items + "<button value=" + oindex + " id=" + index + " class='btn btn-sm btn-danger' onclick='deleteItem(this)'><i class='fas fa-trash-alt'></i></button><br>");
                 });
             }
-            s += ("<button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'>Remove</button></div>");
+            s += ("<button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         } else if (item.option === 'text') {
-            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type =" + item.option + " id = " + index + " class='textF'><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'>Remove</button></div>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type =" + item.option + " id = " + index + " class='textF'><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         } else if (item.option === 'textarea') {
-            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><textarea rows='5' id=" + index + "></textarea><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'>Remove</button></div>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><textarea id=" + index + "></textarea><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         } else {
-            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type =" + item.option + " id = " + index + "><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'>Remove</button></div>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type =" + item.option + " id = " + index + "><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         }
     });
     document.getElementById('customForm').innerHTML = s;
@@ -95,13 +109,13 @@ async function submit() {
             body: JSON.stringify({
                 data: arr,
                 heading: document.getElementById('heading').value,
-                description: document.getElementById('desc').value,
+                description: document.getElementById('formDesc').value,
                 fontFamily: document.getElementById('ffamily').value,
                 fontSize: document.getElementById('fsize').value,
                 textColor: document.getElementById('color').value,
                 backgroundColor: document.getElementById('bgcolor').value,
-                logo: await generateBase64FromImage(document.getElementById('image').files[0]),
-                backgroundImage: await generateBase64FromImage(document.getElementById('image1').files[0]),
+                // logo: await generateBase64FromImage(document.getElementById('image').files[0]),
+                // backgroundImage: await generateBase64FromImage(document.getElementById('image1').files[0]),
             })
         })
         .then(d => {

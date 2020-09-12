@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/materialize.css">
     <link rel="stylesheet" href="/css/style.css">
     <style>
         body {
@@ -13,6 +14,15 @@
             font-size: <%=form.fontSize%>px !important;
             font-family: '<%=form.fontFamily%>' !important;
             color: <%=form.textColor%> !important;
+        }
+        #customForm{
+            color: <%=form.textColor%> !important; 
+        }
+        .contentItems > input[type=text],.contentItems>textarea{
+            width : 100% !important;
+        } 
+        p{
+            text-align: center;
         }
     </style>
 </head>
@@ -28,7 +38,9 @@
         <form id="customForm" method="POST" action="/forms/<%= form.formCode%>">
             <%- form.html %>
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="btn-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
