@@ -29,6 +29,10 @@ exports.getFormCreate = (req, res, next) => {
     res.render('user/index');
 }
 
+exports.getFormCreate = (req, res, next) => {
+    res.render('user/index');
+}
+
 exports.postFormCreate = async(req, res, next) => {
     if (req.body.data.length === 0) {
         return res.json({ msg: 'Invalid' });
@@ -57,4 +61,11 @@ exports.postFormCreate = async(req, res, next) => {
     admin.forms.push(form._id);
     await admin.save();
     return res.status(200).json({ msg: 'OK', url: 'http://localhost:3000/forms/' + form.formCode });
+}
+
+
+
+// template -- feedback
+exports.getFeedbackTemplate = (req, res, next) => {
+    res.render('user/template-feedback');
 }
