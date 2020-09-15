@@ -57,6 +57,20 @@
 
 	</style>
 
+	
+</head>
+
+<body>
+
+	<div id="message">
+		<h1 id="title">Hello</h1>
+		<p id = "body">body</p>
+		<div id="message-buttons-container">
+			<button onclick="onButtonClick(1)">Edit response</button>
+			<button onclick="onButtonClick(2)">View response</button>
+		</div>
+		<label id = "signature">yo</label>
+	</div>
 	<script type="text/javascript">
 
 		function onButtonClick(requestType) {
@@ -133,19 +147,5 @@
 		window.onresize = function () { centerize(); }
 
 	</script>
-</head>
-
-<body>
-
-	<div id="message">
-		<h1 id="title">Hello</h1>
-		<p id = "body">body</p>
-		<div id="message-buttons-container">
-			<button onclick="onButtonClick(1)">Edit response</button>
-			<button onclick="onButtonClick(2)">View response</button>
-		</div>
-		<label id = "signature">yo</label>
-	</div>
-
 </body>
 </html>
