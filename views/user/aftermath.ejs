@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title></title>
+
+	<style type="text/css">
+		
+		body {
+			margin: 0;
+			background: url("/assets/images/aftermath/dot.png") repeat;
+			font-family: sans-serif;
+		}
+
+		#message {
+			width: 50vw;
+			padding: 16px;
+			border-radius: 8px;
+			border: 1px solid rgb(209,209,214);
+			border-bottom: 8px solid rgb(52,199,89);
+			background-color: rgb(255,255,255);
+		}
+
+		#message * {
+			margin: 0;
+		}
+
+		#message h1 {
+			font-weight: bold;
+			font-size: 24px;
+			color: rgb(28,28,30);
+		}
+
+		#message p, label{
+			font-size: 16px;
+			color: rgb(44,44,46);
+			margin-top: 24px;
+		}
+
+		#message-buttons-container {
+			margin: 24px 0;
+		}
+
+		#message-buttons-container button {
+			display: block;
+			margin-bottom: 4px;
+			background: none;
+			outline: none;
+			border: none;
+			cursor: pointer;
+			font-size: 14px;
+			color: rgb(0,122,255);		
+		}
+
+	</style>
+
+	<script type="text/javascript">
+
+		function onButtonClick(requestType) {
+
+			// backend guys, do your thing
+
+			if(requestType == "edit") {
+
+			} else if(requestType == "view") {
+
+			}
+
+			console.log(requestType);
+
+		}
+
+
+		function centerize() {
+
+			var msgBox = document.getElementById("message");
+			let unit = "px";
+
+			let winWidth = window.innerWidth;
+			let winHeight = window.innerHeight;
+
+			if(winHeight >= winWidth)
+				msgBox.style.width = "80vw";
+			else
+				msgBox.style.width = "50vw";
+
+			let msgBoxWidth = msgBox.offsetWidth;
+			let msgBoxHeight = msgBox.offsetHeight;
+
+			let mtop = (winHeight - msgBoxHeight)/2;
+			let mleft = (winWidth - msgBoxWidth)/2;
+
+
+			msgBox.style.marginTop = mtop + unit;
+			msgBox.style.marginLeft = mleft + unit;
+
+		}
+
+		function getMessage() {
+
+			// this method will contact with the server and check if any custom message is
+			// set for the form, if so it'll retreive it and make a msg object, I think a 
+			// title, body and signature will be enough for a custom message, backend guys
+			// please check it.
+
+			var msg = {
+				title     : "Thanks for submitting the form !",
+				body      : "We're thrilled to hear from you, if you want to edit your response use the edit button or if you want submit another response use the submit another response button.",
+				signature : "-- Team Forms"
+			};
+
+			return msg;
+		}
+
+		function fill() {
+
+			let msg = getMessage();
+
+			let title = document.getElementById("title");
+			let bpdy = document.getElementById("body");
+			let sig = document.getElementById("signature");
+
+			title.innerHTML = msg.title;
+			body.innerHTML = msg.body;
+			sig.innerHTML = msg.signature;
+
+		}
+
+		window.onload = function () { fill(); centerize(); }
+		window.onresize = function () { centerize(); }
+
+	</script>
+</head>
+
+<body>
+
+	<div id="message">
+		<h1 id="title">Hello</h1>
+		<p id = "body">body</p>
+		<div id="message-buttons-container">
+			<button onclick="onButtonClick(1)">Edit response</button>
+			<button onclick="onButtonClick(2)">View response</button>
+		</div>
+		<label id = "signature">yo</label>
+	</div>
+
+</body>
+</html>
