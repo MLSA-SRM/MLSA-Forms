@@ -32,4 +32,6 @@ router.post('/signup', [body('name', 'Please enter a name.').not().isEmpty().tri
     })
 ], authController.postSignUp)
 
+router.get('/logout', authController.getLogout);
+
 module.exports = router;
