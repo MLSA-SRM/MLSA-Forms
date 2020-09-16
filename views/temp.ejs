@@ -25,21 +25,50 @@
         .contentItems>textarea {
             width: 100% !important;
         }
+
+        .contentItems > input[type=text],.contentItems>textarea{
+            width : 100% !important;
+        } 
+        .contentItems{
+            padding: 5%;
+        }
+        h1{
+            margin: 4%;
+        }
+  
         
         p {
+
             text-align: center;
+            margin: 3%;
+        }
+        button{
+            margin: 2%;
+        }
+        #customForm input[type=text],#customForm textarea,#customForm input{
+            color: <%=form.textColor%> !important; 
+        }
+        input,textarea{
+            caret-color: #26a69a;
+        }
+        .disable{
+             pointer-events: initial;
+        }
+        #customForm .disable  input,#customForm .disable  textarea{
+            background-color: #fff;
         }
     </style>
 </head>
 
 <body>
-    <h1>
-        <%= form.heading %>
-    </h1>
-    <p>
-        <%=form.description%>
-    </p>
-    <div class="content">
+    
+    <div class="formContent">
+        <h1>
+            <%= form.heading %>
+        </h1>
+        <p>
+            <%=form.description%>
+        </p>
         <form id="customForm" method="POST" action="/forms/<%= form.formCode%>">
             <%- form.html %>
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -60,7 +89,6 @@
     <script>
         let captcha;
         let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
         function generateCaptcha() {
             fetch('/captcha', {
                     credentials: 'same-origin',

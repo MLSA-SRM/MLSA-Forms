@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    color: #fff;
 
 }
 .nav-item{
@@ -36,12 +35,18 @@ body {
 html {
     overflow: hidden;
 }
-.formContent{
-    padding:2% 4% ;
-}
 body {
     overflow-y: scroll;
     background-color: #3b8cb5;
+}
+h1{
+    font-size: default !important;
+}
+.formContent{
+    border-radius: 16px;
+    background-color: #fff;
+    padding:2% 0 ;
+    margin:5% 15%;
 }
 
 .contentOptions {
@@ -67,25 +72,27 @@ h1,
     border-radius: 16px;
     padding:3% 4%;
     text-align: center;
-    margin: auto 25%;
+    margin: 5% 10%;
     border: solid 1px #bbb;
     background-color: #fff;
 }
 .info{
     font-size:14px;
-    color: #000;
 }
 textarea {
     width: 100%;
 }
-.contentItems {
-    margin: 2% 25%;
-    padding: 5%;
+.contentItems ,#null{
+    margin: 2% 10%;
+    padding: 5% 5% 1%;
     text-align: justify;
     text-transform: capitalize;
     border: solid 1px #bbb;
     border-radius: 16px;
     background-color: #fff;
+}
+#null{
+    padding: 5%;
 }
 
 #customForm p {
@@ -103,7 +110,7 @@ textarea {
 
 #customForm input[type=text] {
     margin: 1% auto;
-    width: 80%;
+    width: 91%;
     /* border-style: none; */
 }
 
@@ -127,7 +134,7 @@ input[type=text],input[type=number]{
 }
 
 #customForm button {
-    margin-left: 3%;
+    margin-left: 2%;
 }
 
 .btn-danger {
@@ -146,9 +153,6 @@ input[type=radio],input[type=checkbox]{
 .textF {
     width: 100% !important;
 }
-#customForm{
-    color: #000;
-}
 #fsize{
     width: 70%;
 }
@@ -158,11 +162,23 @@ input[type=radio],input[type=checkbox]{
 nav li:hover{
     background-color: none;
 }
-
-.contentItems > input[type=text],.contentItems>textarea{
-    width : 88% !important;
-    vertical-align: bottom;
-} 
+.contentItems:hover{
+    background-color: #f3f3f4;
+}
+.exop{
+    margin:2% 0;
+    color:#000 !important;
+    /* padding-left: 73%; */
+}
+.btn-danger:hover{
+    background-color:darkred;
+}
 .contentItems>textarea{
     margin-bottom:0 ;
+}
+.disable{
+    pointer-events: none;
+}
+#customForm .disable  input,#customForm .disable  textarea{
+    background-color: #f3f3f1;
 }
