@@ -16,9 +16,16 @@
             font-family: '<%=form.fontFamily%>' !important;
             color: <%=form.textColor%> !important;
         }
-        #customForm{
-            color: <%=form.textColor%> !important; 
+        
+        #customForm {
+            color: <%=form.textColor%> !important;
         }
+        
+        .contentItems>input[type=text],
+        .contentItems>textarea {
+            width: 100% !important;
+        }
+
         .contentItems > input[type=text],.contentItems>textarea{
             width : 100% !important;
         } 
@@ -28,7 +35,10 @@
         h1{
             margin: 4%;
         }
-        p{
+  
+        
+        p {
+
             text-align: center;
             margin: 3%;
         }
