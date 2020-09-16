@@ -31,7 +31,7 @@ exports.postForm = async(req, res, next) => {
         response['date'] = new Date();
         form.responses.push(response);
         await form.save();
-        res.send('ok');
+        res.render('aftermath');
     } catch (err) {
         next(err);
     }

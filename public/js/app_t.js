@@ -1,9 +1,41 @@
 var obj = {};
 var arr = [];
 var prr = [];
-var s = "",
-    formDesc = "";
+var s = "", formDesc = "";
 var heading = "";
+
+window.onload = setBeforeHand();
+
+function setBeforeHand() {
+	
+	console.log("called sbf");
+	
+	var op = {
+		desc : "",
+		option : "",
+		noOfItem : []
+	};
+	
+	heading = "Feedback form";
+	formDesc = "Please submit your feedback !";
+	
+	var questions = ["Your name ?", "Email", "Feedback", "Suggestions for improvement"];
+	var options = ["text", "text", "textarea", "textarea"];
+	
+	for(var i =0; i<questions.length; i++) {
+		op = new Object();
+		op.desc = questions[i];
+		op.option = options[i];
+		arr.push(op);
+	}
+	
+	document.getElementById('head').innerText = heading;
+	document.getElementById('heading').value = heading;
+	document.getElementById('formDesc').value = formDesc;
+	
+	printData();
+	
+}
 
 function addHeading() {
     heading = document.getElementById('heading').value;
@@ -61,13 +93,8 @@ function openNav() {
     }
 }
 function apply(){
-    document.querySelector('#head').style.color = document.getElementById('color').value;
-    document.querySelector('#head').style.fontSize = document.getElementById('fsize').value+"px";
-    document.querySelector('#head').style.fontFamily = document.getElementById('ffamily').value;
     document.querySelector('#customForm').style.color = document.getElementById('color').value;
     document.querySelector('#customForm').style.fontSize = document.getElementById('fsize').value+"px";
-    document.querySelector('h1').style.fontSize = "4.2rem";
-    document.querySelector('h1').style.fontWeight = "400";
     document.querySelector('#customForm').style.fontFamily = document.getElementById('ffamily').value;
     if(document.getElementById('image1').value == ""){
         document.querySelector('body').style.backgroundImage = "url()";
@@ -83,19 +110,19 @@ function printData() {
     s = "";
     arr.map(function(item, index) {
         if (item.option === 'radio' || item.option === 'checkbox') {
-            s += ("<div class='contentItems'><div class='itemDesc'>" + (index + 1) + " - " + item.desc + "</div><input type='text' placeholder='Add Option' class='" + index + item.desc + "'><button id=" + index + item.desc + " class='" + index + " btn btn-primary blue' onclick='addOption(this)'><i class='fas fa-plus'></i></button><br>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type='text' placeholder='Add Option' class='" + index + item.desc + "'><button id=" + index + item.desc + " class='" + index + " btn btn-primary' onclick='addOption(this)'><i class='fas fa-plus'></i></button><br>");
             if (item.noOfItem != []) {
                 item.noOfItem.map(function(items, oindex) {
-                    s += ("<span class='disable'><input type =" + item.option + " class=' " + index + "' name=" + index + item.desc + "></input></span>      " + items + "<button value=" + oindex + " id=" + index + " class='btn btn-sm btn-danger red edit' onclick='deleteItem(this)'><i class='fas fa-trash-alt'></i></button><br>");
+                    s += ("<input type =" + item.option + " class=' " + index + "' name=" + index + item.desc + "></input>      " + items + "<button value=" + oindex + " id=" + index + " class='btn btn-sm btn-danger' onclick='deleteItem(this)'><i class='fas fa-trash-alt'></i></button><br>");
                 });
             }
-            s += ("<div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         } else if (item.option === 'text') {
-            s += ("<div class='contentItems'><div class='itemDesc'>" + (index + 1) + " - " + item.desc + "</div><span class='disable'><input type =" + item.option + " id = " + index + " class='textF'></span><div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type =" + item.option + " id = " + index + " class='textF'><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         } else if (item.option === 'textarea') {
-            s += ("<div class='contentItems'><div class='itemDesc'>" + (index + 1) + " - " + item.desc + "</div><span class='disable'><textarea id=" + index + "></textarea></span><div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><textarea id=" + index + "></textarea><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         } else {
-            s += ("<div class='contentItems'><div class='itemDesc'>  " + (index + 1) + " - " + item.desc + "</div><span class='disable'><input type =" + item.option + " id = " + index + "></span><div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<div class='contentItems'>" + (index + 1) + " - " + item.desc + "<br><input type =" + item.option + " id = " + index + "><button id=" + index + " class='btn btn-danger' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button></div>");
         }
     });
     document.getElementById('customForm').innerHTML = s;

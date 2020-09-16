@@ -68,3 +68,10 @@ exports.postSignUp = async(req, res, next) => {
         next(err);
     }
 }
+
+exports.getLogout = (req, res, next) => {
+    return req.session.destroy(err => {
+        if (err) throw err;
+        return res.redirect('/user/signin');
+    })
+}
