@@ -129,15 +129,11 @@
                     e.preventDefault();
                     generateCaptcha();
                     clearInterval(myTimer);
-                    // alert('Invalid Captcha. Please try again.');
+                    alert('Invalid Captcha. Please try again.');
                     myTimer = setInterval(() => {
                         generateCaptcha();
                     }, 90000)
                 }
-                const req = document.querySelectorAll('.req');
-                req.forEach(p => {
-                    console.log(document.getElementById(p.id).innerHTML);
-                })
             });
         </script>
         <%}%>
