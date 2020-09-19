@@ -60,7 +60,7 @@ exports.postFormCreate = async(req, res, next) => {
     const form = await newForm.save();
     admin.forms.push(form._id);
     await admin.save();
-    return res.status(200).json({ msg: 'OK', url: 'http://localhost:3000/forms/' + form.formCode });
+    return res.status(200).json({ msg: 'OK', url: 'http://localhost:3000/forms/' + form.formCode + '?preview=true' });
 }
 
 

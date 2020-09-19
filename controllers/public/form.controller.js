@@ -2,12 +2,16 @@ const FormModel = require('../../models/Form.model');
 
 exports.getForm = async(req, res, next) => {
     try {
+        let preview = false;
+        if (Boolean(req.query.preview)) {
+            preview = true
+        }
         const form = await FormModel.findOne({ formCode: req.params.formCode });
         if (!form) {
             return res.render('404');
         }
         console.log(form)
-        res.render('temp', { form });
+        res.render('temp', { form, preview });
     } catch (err) {
         next(err);
     }
