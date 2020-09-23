@@ -70,6 +70,14 @@ module.exports = (array) => {
                             <input type="time" name="${nameTime}" id="0" class="textF" ${e.required?"required":''}>
                             </div>`;
                 break;
+            case 'file':
+                let fileName = Math.random().toString(36).slice(2) + '_' + e.desc.replace(/[^A-Z0-9]/ig, "_");
+                headings.push({ headings: e.desc, type: 'file', name: fileName })
+                html += `<div class="contentItems">
+                            ${e.desc}${e.required?"<sup style='color:red;'>*</sup>":''}<br>
+                            <input type="file" name="${'file'}" id="0" class="textF" ${e.required?"required":''}>
+                            </div>`;
+                break;
             default:
                 console.log(e);
         }
