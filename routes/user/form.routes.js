@@ -12,6 +12,8 @@ router.get('/create', formController.getFormCreate);
 
 router.post('/create', formController.postFormCreate);
 
+router.get('/delete/:id', formController.getFormDelete);
+
 
 //begin - routes for templates
 

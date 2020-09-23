@@ -79,7 +79,7 @@
         <p>
             <%=form.description%>
         </p>
-        <form id="customForm" method="POST" action="/forms/<%= form.formCode%>">
+        <form id="customForm" method="POST" action="/forms/<%= form.formCode%>" enctype="multipart/form-data">
             <%- form.html %>
                 <% if(!preview){%>
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
