@@ -51,6 +51,7 @@
                                                             <%=e.headings%>
                                                         </th>
                                                         <%})%>
+                                                            <th>Timestamp</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -58,10 +59,19 @@
                                                     <tr>
                                                         <td></td>
                                                         <% for(let i=0;i<forms.metaData.length;i++){%>
-                                                            <td>
-                                                                <%= e[forms.metaData[i].name] %>
-                                                            </td>
-                                                            <%}%>
+                                                            <% if(forms.metaData[i].type==='file'){%>
+                                                                <td>
+                                                                    <a href="<%= e[forms.metaData[i].name] %>" class="btn btn-sm btn-outline-primary" target="_blank">View</a>
+                                                                </td>
+                                                                <%}else{%>
+                                                                    <td>
+                                                                        <%= e[forms.metaData[i].name] %>
+                                                                    </td>
+                                                                    <%}%>
+                                                                        <%}%>
+                                                                            <td>
+                                                                                <%=e.timestamp%>
+                                                                            </td>
                                                     </tr>
                                                     <%}) %>
 

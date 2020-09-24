@@ -1,3 +1,4 @@
+const moment = require('moment');
 const FormModel = require('../../models/Form.model');
 
 exports.getForm = async(req, res, next) => {
@@ -34,7 +35,7 @@ exports.postForm = async(req, res, next) => {
                 response[e.name] = (e.type === 'array') ? [] : '';
             }
         });
-        response['date'] = new Date();
+        response['timestamp'] = moment().format('DD/MM/YYYY HH:mm:ss');
         form.responses.push(response);
         await form.save();
         res.redirect('/forms/submit/' + form.formCode);
