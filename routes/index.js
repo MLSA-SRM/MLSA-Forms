@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 router.use('/forms', userPublicFormRoutes);
 
 router.post('/captcha', (req, res, next) => {
-    var captcha = svgCaptcha.create({ size: 6, noise: 3 });
+    const captcha = svgCaptcha.create({ size: 6, noise: 10 });
     res.status(200).json(captcha);
 });
 

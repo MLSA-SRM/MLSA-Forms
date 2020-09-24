@@ -6,7 +6,7 @@ const AdminModel = require('../../models/Admin.model');
 
 exports.getTotalForms = async(req, res, next) => {
     try {
-        const forms = await FormModel.find({ userID: req.session.user._id });
+        const forms = await FormModel.find({ userID: req.session.user._id }).sort({ createdAt: -1 });
         res.render('user/total-forms', { forms });
     } catch (err) {
         next(err);
@@ -34,33 +34,32 @@ exports.getFormCreate = (req, res, next) => {
 }
 
 exports.postFormCreate = async(req, res, next) => {
-    if (req.body.data.length === 0) {
+    let data = JSON.parse(JSON.parse(req.body.data));
+    if (data.data.length === 0) {
         return res.json({ msg: 'Invalid' });
     }
-    console.log(req.body, req.files);
-    const html = formHtmlGenerator(req.body.data);
+    const html = formHtmlGenerator(data.data);
     const admin = await AdminModel.findById(req.session.user._id);
     const formCode = await formCodeGenerator();
-    console.log(req.body);
     let formData = {
-        heading: req.body.heading,
+        heading: data.heading,
         formCode,
         html: html.html,
         metaData: html.headings,
-        description: req.body.description,
-        fontFamily: req.body.fontFamily,
-        fontSize: req.body.fontSize,
-        textColor: req.body.textColor,
-        backgroundColor: req.body.backgroundColor,
+        description: data.description,
+        fontFamily: data.fontFamily,
+        fontSize: data.fontSize,
+        textColor: data.textColor,
+        backgroundColor: data.backgroundColor,
         userID: req.session.user._id,
-        logo: req.body.logo,
-        backgroundImage: req.body.backgroundImage
+        logo: (req.files) ? (req.files.logo) ? (req.files.logo[0].url) ? req.files.logo[0].url : null : null : null,
+        backgroundImage: (req.files) ? (req.files.background) ? (req.files.background[0].url) ? req.files.background[0].url : null : null : null
     };
     const newForm = new FormModel(formData);
     const form = await newForm.save();
     admin.forms.push(form._id);
     await admin.save();
-    return res.status(200).json({ msg: 'OK', url: 'http://localhost:3000/forms/' + form.formCode });
+    return res.status(200).json({ msg: 'OK', url: 'http://localhost:3000/forms/' + form.formCode + '?preview=true' });
 }
 
 
@@ -68,4 +67,20 @@ exports.postFormCreate = async(req, res, next) => {
 // template -- feedback
 exports.getFeedbackTemplate = (req, res, next) => {
     res.render('user/template-feedback');
+}
+
+exports.getFormDelete = async(req, res, next) => {
+    try {
+        const id = req.params.id;
+        const form = await FormModel.findById(id);
+        if (form) {
+            await form.remove();
+            const userForms = req.user.forms.filter(e => e.toString() !== id.toString());
+            req.user.forms = userForms;
+            await req.user.save();
+        }
+        res.redirect('/user/form')
+    } catch (err) {
+        next(err);
+    }
 }

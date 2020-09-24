@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
             var table = $('#example').DataTable({
                 orderCellsTop: true,
                 fixedHeader: true,
-                bSort: false,
+                bSort: true,
                 dom: 'Bfrtip',
                 responsive: true,
                 lengthMenu: [
@@ -93,10 +93,17 @@ jQuery(document).ready(function($) {
 
     if ($("#example3").length) {
 
-        $('#example3').DataTable({
-            select: {
-                style: 'multi'
-            }
+        var table = $('#example3').DataTable({
+            orderCellsTop: true,
+            fixedHeader: true,
+            bSort: true,
+            dom: 'Bfrtip',
+            responsive: true,
+            lengthMenu: [
+                [10, 25, 50, 100, -1],
+                [10, 25, 50, 100, "All"]
+            ],
+            buttons: ['pageLength', 'colvis', 'excel', 'pdf', 'print'],
         });
 
     }

@@ -9,6 +9,7 @@ module.exports = async(req, res, next) => {
         if (!user || req.session.user.password !== user.password) {
             return res.redirect('/user/signin');
         }
+        req.user = user;
         next();
     } catch (err) {
         next(err);

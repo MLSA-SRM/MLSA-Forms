@@ -62,12 +62,17 @@ function openNav() {
 }
 function apply(){
     document.querySelector('#head').style.color = document.getElementById('color').value;
-    document.querySelector('#head').style.fontSize = document.getElementById('fsize').value+"px";
     document.querySelector('#head').style.fontFamily = document.getElementById('ffamily').value;
     document.querySelector('#customForm').style.color = document.getElementById('color').value;
     document.querySelector('#customForm').style.fontSize = document.getElementById('fsize').value+"px";
-    document.querySelector('h1').style.fontSize = "4.2rem";
-    document.querySelector('h1').style.fontWeight = "400";
+    if(screen.width > 1200){
+        document.querySelector('h1').style.fontSize = "4.2rem";
+        document.querySelector('h1').style.fontWeight = "400";
+    }else if(screen.width > 700){
+        document.querySelector('h1').style.fontSize = "2.8rem";
+    }else if(screen.width > 500){
+        document.querySelector('h1').style.fontSize = "2rem";
+    }
     document.querySelector('#customForm').style.fontFamily = document.getElementById('ffamily').value;
     if(document.getElementById('image1').value == ""){
         document.querySelector('body').style.backgroundImage = "url()";
@@ -104,36 +109,34 @@ function printData() {
 async function submit() {
     console.log(arr);
     var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    let formData = new FormData();
+    let data = JSON.stringify({
+        data: arr,
+        heading: document.getElementById('heading').value,
+        description: document.getElementById('formDesc').value,
+        fontFamily: document.getElementById('ffamily').value,
+        fontSize: document.getElementById('fsize').value,
+        textColor: document.getElementById('color').value,
+        backgroundColor: document.getElementById('bgcolor').value,
+    });
+    formData.append("data", JSON.stringify(data));
+    if (document.getElementById('image').files.length > 0) {
+        console.log(document.getElementById('image').files[0])
+        formData.append('logo', document.getElementById('image').files[0])
+    }
+    if (document.getElementById('image1').files.length > 0) {
+        console.log(document.getElementById('image1').files[0])
+        formData.append('background', document.getElementById('image1').files[0])
+    }
     fetch('/user/form/create', {
             credentials: 'same-origin',
             headers: {
                 'CSRF-Token': token,
-                'Content-Type': 'application/json'
             },
             method: 'POST',
-            body: JSON.stringify({
-                data: arr,
-                heading: document.getElementById('heading').value,
-                description: document.getElementById('formDesc').value,
-                fontFamily: document.getElementById('ffamily').value,
-                fontSize: document.getElementById('fsize').value,
-                textColor: document.getElementById('color').value,
-                backgroundColor: document.getElementById('bgcolor').value,
-                // logo: await generateBase64FromImage(document.getElementById('image').files[0]),
-                // backgroundImage: await generateBase64FromImage(document.getElementById('image1').files[0]),
-            })
+            body: formData
         })
         .then(d => {
-            // JSON.stringify({
-            //     data: arr,
-            //     heading: document.getElementById('heading').value,
-            //     description: document.getElementById('desc').value,
-            //     fontFamily: document.getElementById('ffamily').value,
-            //     fontSize: document.getElementById('fsize').value,
-            //     textColor: document.getElementById('color').value,
-            //     backgroundColor: document.getElementById('bgcolor').value,
-            //     icon: document.getElementById('image').value
-            // })
             return d.json();
         }).then(data => {
             console.log(data)
