@@ -65,12 +65,17 @@ function openNav() {
 
 function apply() {
     document.querySelector('#head').style.color = document.getElementById('color').value;
-    document.querySelector('#head').style.fontSize = document.getElementById('fsize').value + "px";
     document.querySelector('#head').style.fontFamily = document.getElementById('ffamily').value;
     document.querySelector('#customForm').style.color = document.getElementById('color').value;
-    document.querySelector('#customForm').style.fontSize = document.getElementById('fsize').value + "px";
-    document.querySelector('h1').style.fontSize = "4.2rem";
-    document.querySelector('h1').style.fontWeight = "400";
+    document.querySelector('#customForm').style.fontSize = document.getElementById('fsize').value+"px";
+    if(screen.width > 1200){
+        document.querySelector('h1').style.fontSize = "4.2rem";
+        document.querySelector('h1').style.fontWeight = "400";
+    }else if(screen.width > 700){
+        document.querySelector('h1').style.fontSize = "2.8rem";
+    }else if(screen.width > 500){
+        document.querySelector('h1').style.fontSize = "2rem";
+    }
     document.querySelector('#customForm').style.fontFamily = document.getElementById('ffamily').value;
     if (document.getElementById('image1').value == "") {
         document.querySelector('body').style.backgroundImage = "url()";

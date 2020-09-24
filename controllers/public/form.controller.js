@@ -22,7 +22,8 @@ exports.postForm = async(req, res, next) => {
         const form = await FormModel.findOne({ formCode: req.params.formCode });
         let response = {}
         form.metaData.forEach(e => {
-            if (req.body[e.name] || (req.files && req.files.file.length > 0)) {
+
+            if (req.body[e.name] || (req.files && req.files.file && req.files.file.length > 0)) {
                 let answer = req.body[e.name];
                 if (e.type === 'array' && !(Array.isArray(answer))) {
                     answer = [answer];
