@@ -70,18 +70,39 @@
         #customForm .disable textarea {
             background-color: #fff;
         }
+
+        @media(min-width: 480px) {
+            #img-logo-container {
+                 border-top-right-radius: 16px; 
+                 border-top-left-radius: 16px;
+            }
+        }
+
+        @media (max-width:480px) {
+             #img-logo-container {
+                 border-top-right-radius: 0px; 
+                 border-top-left-radius: 0px;
+            }           
+        }
     </style>
 </head>
 
 <body>
 
     <div class="formContent">
+
+        <div id="img-logo-container" style="display: inline-block;">
+            <img src= <%=  form.logo %> id="img-logo-bg" style="display: block;"/>
+            <img src= <%=  form.logo %> id="img-logo" style="display: block;" />
+        </div>
+
         <h1>
             <%= form.heading %>
         </h1>
         <p>
             <%=form.description%>
         </p>
+
         <form id="customForm" method="POST" action="/forms/<%= form.formCode%>" enctype="multipart/form-data">
             <%- form.html %>
                 <% if(!preview){%>
