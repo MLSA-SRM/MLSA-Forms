@@ -167,3 +167,14 @@ const generateBase64FromImage = imageFile => {
 function requi(s) {
     arr[s.value].required = true;
 }
+
+
+async function viewImage() {
+    var src = await generateBase64FromImage(document.getElementById("image").files[0]);
+    var img = document.getElementById("img-logo");
+    var imgBg = document.getElementById("img-logo-bg");
+    img.setAttribute("src", src);
+    imgBg.setAttribute("src", src);
+    var container = document.getElementById("img-logo-container");
+    container.style.display = "block";
+}
