@@ -16,7 +16,8 @@ function add() {
     obj = {
         'desc': desc,
         'option': option,
-        'noOfItem': []
+        'noOfItem': [],
+        required: false
     };
     arr.push(obj);
     document.getElementById('desc').value = "";
@@ -50,6 +51,7 @@ function addOption(e) {
     // console.log(e.id);
     // console.log();
 }
+
 function openNav() {
     var x = document.getElementById("mySidepanel");
     if (x.style.display === "none") {
@@ -60,7 +62,8 @@ function openNav() {
         x.style.display = "none";
     }
 }
-function apply(){
+
+function apply() {
     document.querySelector('#head').style.color = document.getElementById('color').value;
     document.querySelector('#head').style.fontFamily = document.getElementById('ffamily').value;
     document.querySelector('#customForm').style.color = document.getElementById('color').value;
@@ -74,10 +77,10 @@ function apply(){
         document.querySelector('h1').style.fontSize = "2rem";
     }
     document.querySelector('#customForm').style.fontFamily = document.getElementById('ffamily').value;
-    if(document.getElementById('image1').value == ""){
+    if (document.getElementById('image1').value == "") {
         document.querySelector('body').style.backgroundImage = "url()";
         document.querySelector('body').style.backgroundColor = document.getElementById('bgcolor').value;
-    }else{
+    } else {
         document.querySelector('body').style.backgroundColor = "#3b8cb5";
         document.querySelector('body').style.backgroundImage = "url(document.getElementById('image1').value)";
     }
@@ -94,13 +97,13 @@ function printData() {
                     s += ("<span class='disable'><input type =" + item.option + " class=' " + index + "' name=" + index + item.desc + "></input></span>      " + items + "<button value=" + oindex + " id=" + index + " class='btn btn-sm btn-danger red edit' onclick='deleteItem(this)'><i class='fas fa-trash-alt'></i></button><br>");
                 });
             }
-            s += ("<div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<div class='exop text-right'><input type='checkbox' onchange='requi(this)' value=" + index + " onchange='requi(this)' value=" + index + ">Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
         } else if (item.option === 'text') {
-            s += ("<div class='contentItems'><div class='itemDesc'>" + (index + 1) + " - " + item.desc + "</div><span class='disable'><input type =" + item.option + " id = " + index + " class='textF'></span><div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<div class='contentItems'><div class='itemDesc'>" + (index + 1) + " - " + item.desc + "</div><span class='disable'><input type =" + item.option + " id = " + index + " class='textF'></span><div class='exop text-right'><input type='checkbox' onchange='requi(this)' value=" + index + ">Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
         } else if (item.option === 'textarea') {
-            s += ("<div class='contentItems'><div class='itemDesc'>" + (index + 1) + " - " + item.desc + "</div><span class='disable'><textarea id=" + index + "></textarea></span><div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<div class='contentItems'><div class='itemDesc'>" + (index + 1) + " - " + item.desc + "</div><span class='disable'><textarea id=" + index + "></textarea></span><div class='exop text-right'><input type='checkbox' onchange='requi(this)' value=" + index + ">Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
         } else {
-            s += ("<div class='contentItems'><div class='itemDesc'>  " + (index + 1) + " - " + item.desc + "</div><span class='disable'><input type =" + item.option + " id = " + index + "></span><div class='exop text-right'><input type='checkbox'>Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
+            s += ("<div class='contentItems'><div class='itemDesc'>  " + (index + 1) + " - " + item.desc + "</div><span class='disable'><input type =" + item.option + " id = " + index + "></span><div class='exop text-right'><input type='checkbox' onchange='requi(this)' value=" + index + ">Required<button id=" + index + " class='btn btn-danger red edit' onclick='deleteOption(this)'><i class='fas fa-trash-alt'></i></button><button class='btn btn-primary blue edit'><i class='fas fa-pencil-alt'></i></button></div></div>");
         }
     });
     document.getElementById('customForm').innerHTML = s;
@@ -160,3 +163,7 @@ const generateBase64FromImage = imageFile => {
     reader.readAsDataURL(imageFile);
     return promise;
 };
+
+function requi(s) {
+    arr[s.value].required = true;
+}
