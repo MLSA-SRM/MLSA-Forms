@@ -44,8 +44,14 @@
                 </li>
                 <li>
                     Add Background Image 
-                    <input type="file" id="image1" accept="image/*">
-
+                    <input type="file" name="image1" id="image1" />
+    <div class="image-preview" id="imagePreview">
+      <img src="" class="image-preview__image" alt="Image Preview" />
+      <span class="image-preview__default-text">Image Preview</span>
+    </div>
+    <button class="button button1" id="mybtn">Remove</button>
+    <button class="button button1" id="mybtn1">Apply</button>
+    <script src="./index.js"></script>
                 </li>
                 <li>
                     Text - <input type="color" id="color">
