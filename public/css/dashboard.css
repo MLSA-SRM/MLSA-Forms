@@ -1,0 +1,61 @@
+.dashboardContent {
+    padding:3%;
+}
+.col-lg-12{
+    padding: 0;
+}
+.dashboardContent td .form-group{
+    display: inline-block;
+}
+.dashboardContent {
+    text-align: center;
+}
+.dashboardContent table{
+    color: #2f3542 !important;
+}
+.dashboardContent .card-header .btn{
+    background-color: #0be881;
+    color: #2f3542;
+}
+.dashboardContent thead tr{
+    background-color: #26de81;
+}
+.dashboardContent tbody tr:nth-child(even){
+    background-color: #0be881;
+}
+.dashboardContent tbody tr:nth-child(odd) .btn{
+    background-color: #fff;
+    color: #2f3542;
+    border-color: #2f3542;
+}
+.dashboardContent tbody tr:nth-child(odd) .btn:hover{
+    background-color: #0be881;
+    border-color: #0be881;
+}
+
+.dashboardContent tbody tr:nth-child(even) .btn{
+    background-color: rgba(0,0,0,0);
+    color: #2f3542;
+    border-color: #2f3542;
+}
+.dashboardContent tbody tr:nth-child(even) input{
+    background-color: rgba(0,0,0,0);
+    color: #2f3542;
+    border-color: #2f3542;
+}
+.dashboardContent tbody tr:nth-child(even) .btn:hover{
+    background-color: #fff;
+    border-color: #fff;
+}
+.dashboardContent .dt-buttons,.dashboardContent #example3_filter{
+    display: inline-block;
+    margin: % 0;
+}
+.dashboardContent .dt-buttons{
+    text-align: left;
+    width: 60%;
+}
+.dashboardContent #example3_filter{
+    text-align: right;
+    width: 40%;
+}

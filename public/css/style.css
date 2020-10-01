@@ -10,6 +10,13 @@ body{
 .nav-item{
     margin: auto 5px;
 }
+#formDescription{
+    margin:2% auto;
+    text-align: center;
+}
+#formDescription,#head{
+    outline: none;
+}
 .sidepanel  {
     width: 0;
     height: 100vh;
@@ -47,7 +54,7 @@ h1{
 .formContent{
     border-radius: 16px;
     background-color: #fff;
-    padding:2% 0 ;
+    padding: 0 0 2% 0 ;
     margin:5% 15%;
 }
 
@@ -197,6 +204,43 @@ nav li:hover{
     font-size: 85%;
     font-weight:600;
 }
+
+#img-logo-container {
+    display: none;
+    position: relative;
+    display: none;
+    width: 100%; 
+    overflow: hidden;
+}
+
+#img-logo-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#img-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#margin-dummy {
+    height: 1px;
+    width: 1px;
+}
+
 @media (min-width:1200px){
     .sidepanel{
         width: 22vw !important;
@@ -207,7 +251,12 @@ nav li:hover{
         margin-top: .5%;
         margin-bottom:.5%;
     }
+
+    #img-logo-container {
+        height: 200px;
+    }
 }
+
 @media (max-width:1200px){
     .sidepanel{
         width: 100vw !important;
@@ -225,6 +274,9 @@ nav li:hover{
       }
       .captcha{
         width: 40VW;
+    }
+    #img-logo-container {
+        height: 200px;
     }
 }
 @media (max-width:995px){
@@ -250,6 +302,9 @@ nav li:hover{
       }
       .captcha{
         width: 50VW;
+    }
+    #img-logo-container {
+        height: 160px;
     }
 }
 @media (max-width:480px){
@@ -344,6 +399,9 @@ nav li:hover{
     .captcha{
         width: auto;
     }
+    #img-logo-container {
+        height: 80px;
+    }
 }
 
 @media (max-width:430px){
@@ -364,6 +422,9 @@ nav li:hover{
     }
     #headLogo{
         margin-left: 20%;
+    }
+    #img-logo-container {
+        height: 80px;
     }
 }
 @media (max-width:380px){
@@ -387,6 +448,9 @@ nav li:hover{
     }
     #customForm button{
         margin-left: 2.5%;
+    }
+    #img-logo-container {
+        height: 80px;
     }
 }
 @media (max-width:330px){
@@ -413,5 +477,8 @@ nav li:hover{
     }
     #customForm button{
         margin-left: 2%;
+    }
+    #img-logo-container {
+        height: 80px;
     }
 }

@@ -42,7 +42,7 @@
     
     <div class="formContent">
         <h1 id="head">Custom Form Builder</h1>
-        <p id="headLogo">Logo - <input type="file" id="image" accept="image/*"></p>
+        <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
         <div id="mySidepanel" class="sidepanel">
             <ul class="nav flex-column">
                 <li>
@@ -82,6 +82,12 @@
           </div>
         
         <div class="content">
+
+            <div id="img-logo-container">
+                <img  id="img-logo-bg" style="display: block;" />
+                <img  id="img-logo" style="display: block;" />
+            </div>
+
             <div class="addData">
                 <div class="row">
                     <div class="col-lg-10">

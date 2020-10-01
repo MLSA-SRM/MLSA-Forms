@@ -9,6 +9,16 @@ function addHeading() {
     heading = document.getElementById('heading').value;
     document.querySelector('h1').innerText = heading;
 }
+function checkH1(){
+    if(document.getElementById('head').innerText==""){
+        document.getElementById('head').innerText="Enter Form Name";
+    }
+}
+function checkP(){
+    if(document.getElementById('formDescription').innerText==""){
+        document.getElementById('formDescription').innerText="Enter Form Description";
+    }
+}
 
 function add() {
     var desc = document.getElementById('desc').value;
@@ -115,8 +125,8 @@ async function submit() {
     let formData = new FormData();
     let data = JSON.stringify({
         data: arr,
-        heading: document.getElementById('heading').value,
-        description: document.getElementById('formDesc').value,
+        heading: document.getElementById('head').innerText,
+        description: document.getElementById('formDescription').innerText,
         fontFamily: document.getElementById('ffamily').value,
         fontSize: document.getElementById('fsize').value,
         textColor: document.getElementById('color').value,
@@ -166,4 +176,15 @@ const generateBase64FromImage = imageFile => {
 
 function requi(s) {
     arr[s.value].required = true;
+}
+
+
+async function viewImage() {
+    var src = await generateBase64FromImage(document.getElementById("image").files[0]);
+    var img = document.getElementById("img-logo");
+    var imgBg = document.getElementById("img-logo-bg");
+    img.setAttribute("src", src);
+    imgBg.setAttribute("src", src);
+    var container = document.getElementById("img-logo-container");
+    container.style.display = "block";
 }
