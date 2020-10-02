@@ -1,8 +1,19 @@
-.dashboardContent {
-    padding:3%;
+.dashboardContent .card {
+    /* padding:3%; */
+    box-shadow: -4px 0px 8px 0px rgba(209,209,214,0.75);
 }
 .col-lg-12{
     padding: 0;
+}
+.dashboardContent .col-lg-9{
+    padding: 0;
+}
+.dashboardContent .row{
+    margin: 0;
+}
+.dashboardContent h5{
+    color: #fff;
+    margin: 0;
 }
 .dashboardContent td .form-group{
     display: inline-block;
@@ -10,18 +21,29 @@
 .dashboardContent {
     text-align: center;
 }
+.dashboardContent .dropdown-item{
+    background-color: #3b8cb5;
+    color: #fff;
+}
 .dashboardContent table{
     color: #2f3542 !important;
 }
-.dashboardContent .card-header .btn{
-    background-color: #0be881;
-    color: #2f3542;
+.dashboardContent .btn{
+    background-color: #3b8cb5;
+    color: #fff;
 }
 .dashboardContent thead tr{
-    background-color: #26de81;
+    background-color: #3b8cb5;
+}
+.dashboardContent thead th{
+    color: #fff !important;
 }
 .dashboardContent tbody tr:nth-child(even){
-    background-color: #0be881;
+    background-color: #3b8cb5;
+    color: #fff;
+}
+.dashboardContent tbody tr:nth-child(odd){
+    background-color: #fff;
 }
 .dashboardContent tbody tr:nth-child(odd) .btn{
     background-color: #fff;
@@ -29,33 +51,50 @@
     border-color: #2f3542;
 }
 .dashboardContent tbody tr:nth-child(odd) .btn:hover{
-    background-color: #0be881;
-    border-color: #0be881;
+    background-color: #3b8cb5;
+    border-color: #fff;
+    color: #fff;
 }
 
 .dashboardContent tbody tr:nth-child(even) .btn{
     background-color: rgba(0,0,0,0);
-    color: #2f3542;
-    border-color: #2f3542;
+    color: #fff;
+    border-color: #fff;
+}
+.dashboardContent tbody tr input{
+    border-width: 0;
+}
+.dashboardContent tbody tr input:focus{
+    outline: none;
 }
 .dashboardContent tbody tr:nth-child(even) input{
     background-color: rgba(0,0,0,0);
-    color: #2f3542;
-    border-color: #2f3542;
+    color: #fff;
 }
 .dashboardContent tbody tr:nth-child(even) .btn:hover{
     background-color: #fff;
-    border-color: #fff;
+    border-color: #2f3542;
+    color: #2f3542;
+
+}
+.dashboardContent .pagination .page-item.active .page-link{
+    background-color: #3b8cb5;
+}
+.dashboardContent .pagination .page-item .page-link:hover{
+    background-color: #3b8cb5;
 }
 .dashboardContent .dt-buttons,.dashboardContent #example3_filter{
     display: inline-block;
-    margin: % 0;
+    margin: 1% 0 2%;
 }
 .dashboardContent .dt-buttons{
     text-align: left;
-    width: 60%;
+    width: 70%;
 }
 .dashboardContent #example3_filter{
     text-align: right;
-    width: 40%;
+    width: 30%;
+}
+.dashboardContent .temp ,.dashboardContent .formCon{
+    height: 100vh;
 }
