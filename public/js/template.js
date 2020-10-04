@@ -1,9 +1,98 @@
 var obj = {};
 var arr = [];
 var prr = [];
-var s = "",
-    formDesc = "";
+var s = "", formDesc = "";
 var heading = "";
+
+/* Don't touch this */
+
+function QuestionBlock() {
+
+    this.question = "";
+    this.answerType = "";
+    this.menu = [];
+    this.required = false;
+
+}
+
+function Template() {
+
+    this.heading = "";
+    this.description = "";
+    this.backgroundColor = "#fafafa";
+    this.arr = [];
+
+    this.setBackgroundColor = function (bgColor)  { this.backgroundColor = bgColor; };
+
+    this.setTitle = function (heading) {  this.heading = heading; };
+    this.getTitle = function () { return this.heading; };
+
+    this.setDescription = function (description) {  this.description = description; };
+    this.getDescription = function () { return this.description; };
+
+    this.set = function (q, type, req) {
+        if(type !== "radio" && type != "checkbox") {
+            var qb = new QuestionBlock();
+            qb.question = q;
+            qb.answerType = type;
+            qb.required = req;
+            this.arr.push(qb);
+        }
+    };
+
+    this.setMultiValued = function (q, type, menu, req) {
+        if(type == "radio" || type == "checkbox") {
+            var qb = new QuestionBlock();
+            qb.question = q;
+            qb.answerType = type;
+            qb.menu = menu;
+            qb.required = req;
+            this.arr.push(qb);           
+        }
+    };
+
+    this.get = function () { return this.arr; };
+
+    this.render = function () {
+
+        document.getElementById("head").innerText = this.heading;
+        document.getElementById("heading").value = this.heading;
+        document.getElementById("formDesc").value = this.description;
+        document.getElementsByTagName("body")[0].style.backgroundColor = this.backgroundColor;
+        document.getElementById("bgcolor").value = this.backgroundColor;
+
+        var questionBlocks = this.arr;
+
+        for(var i = 0; i<questionBlocks.length; i++) {
+
+            console.log(questionBlocks[i]);
+
+            var obj = {  desc : questionBlocks[i].question,
+            option : questionBlocks[i].answerType,
+            noOfItem : questionBlocks[i].menu,
+            required : questionBlocks[i].required };
+
+            arr.push(obj);
+
+        }
+
+        printData();   
+        
+    }
+
+}
+
+/* start touching */
+
+
+
+
+
+/* Kharkia's functions are below this */
+
+
+
+
 
 function addHeading() {
     heading = document.getElementById('heading').value;

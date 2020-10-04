@@ -17,7 +17,8 @@ router.get('/delete/:id', formController.getFormDelete);
 
 //begin - routes for templates
 
-router.get('/template-feedback', formController.getFeedbackTemplate);
+router.get('/templateFeedback', formController.getFeedbackTemplate);
+router.get('/templateRegistration', formController.getRegistrationTemplate);
 
 // end
 
