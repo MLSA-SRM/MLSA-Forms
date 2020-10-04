@@ -66,8 +66,13 @@ exports.postFormCreate = async(req, res, next) => {
 
 // template -- feedback
 exports.getFeedbackTemplate = (req, res, next) => {
-    res.render('user/template-feedback');
+    res.render('user/templates/template-feedback');
 }
+
+exports.getRegistrationTemplate = (req, res, next) => {
+    res.render('user/templates/template-registration');
+}
+//
 
 exports.getFormDelete = async(req, res, next) => {
     try {

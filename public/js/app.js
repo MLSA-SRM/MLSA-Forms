@@ -11,18 +11,20 @@ function addHeading() {
 }
 
 function add() {
-  var desc = document.getElementById("desc").value;
-  var option = document.getElementById("options").value;
-  obj = {
-    desc: desc,
-    option: option,
-    noOfItem: [],
-    required: false,
-  };
-  arr.push(obj);
-  document.getElementById("desc").value = "";
-  printData();
-}
+
+    var desc = document.getElementById('desc').value;
+    var option = document.getElementById('options').value;
+    obj = {
+        'desc': desc,
+        'option': option,
+        'noOfItem': [],
+        required: false
+    };
+    arr.push(obj);
+    document.getElementById('desc').value = "";
+    console.log(arr);
+    printData();
+
 
 function deleteItem(e) {
   arr[e.id].noOfItem.splice(e.value, 1);

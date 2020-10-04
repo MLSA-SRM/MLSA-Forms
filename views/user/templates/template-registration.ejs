@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<%=csrfToken%>">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f909d114f1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/template-feedback-style.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <!-- <link rel="stylesheet" href="/css/materialize.min.css"> -->
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg  navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            MLSA Custom Form Maker
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-palette fa-lg" onclick="openNav()"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-share-alt fa-lg"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-eye fa-lg"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-user fa-lg"></i></a>
+              </li>
+            </ul>
+          </div>
+    </nav>
+    
+    <div class="formContent">
+        <h1 id="head">Custom Form Builder</h1>
+        <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
+        <div id="mySidepanel" class="sidepanel">
+            <ul class="nav flex-column">
+                <li>
+                    Background - <input type="color" id="bgcolor" value="#eb6580">
+                </li>
+                <li>
+                    Add Background Image 
+                    <input type="file" id="image1" accept="image/*">
+
+                </li>
+                <li>
+                    Text - <input type="color" id="color">
+                </li>
+                <li>
+                    Font Size - <input type="number" value="16" min="10" id="fsize">
+                </li>
+                <li>
+                    Font Family - <select name="font" id="ffamily">
+                        <option value="Arial" style="font-family: Arial;">Arial</option>
+                        <option value="Algerian" style="font-family: Algerian;">Algerian</option>
+                        <option value="Brush Script MT" style="font-family: Brush Script MT;">Brush Script MT</option>
+                        <option value="Calibri" style="font-family: Calibri;">Calibri</option>
+                        <option value="Cambria" style="font-family: Cambria;">Cambria</option>
+                        <option value="Copperplate" style="font-family: Copperplate;">Copperplate</option>
+                        <option value="Didot" style="font-family: Didot;">Didot</option>
+                        <option value="Garamond" style="font-family: Garamond;">Garamond</option>
+                        <option value="Lucida Bright" style="font-family: Lucida Bright;">Lucida Bright</option>
+                        <option value="Monaco" style="font-family: Monaco;">Monaco</option>
+                        <option value="Optima" style="font-family: Optima;">Optima</option>
+                        <option value="Times New Roman" style="font-family: Times New Roman;">Times New Roman</option>
+                    </select>
+                </li>
+                <li style="text-align:center ;">
+                    <button onclick="apply()" class="btn btn-primary">Apply</button>
+                </li>
+            </ul>
+          </div>
+        
+        <div class="content">
+
+            <div id="img-logo-container">
+                <img  id="img-logo-bg" style="display: block;" />
+                <img  id="img-logo" style="display: block;" />
+            </div>
+
+            <div class="addData">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <input type="text" placeholder="Add Heading" id='heading'>
+                    </div>
+                    <div class="col-lg-2">
+                        <button onclick="addHeading()" class="btn-primary btn"><i class='fas fa-plus'></i></button><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10">
+                        <textarea name="formDesc" id="formDesc" class="materialize-textarea" placeholder="Add Form Description"></textarea><br>
+                        <span class="info">*Description will be visible in preview page.</span>
+                    </div>
+                    <div class="col-lg-2 descButton">
+                        <button class="btn  btn-primary btn-md" onclick="addDesc()"><i class='fas fa-plus'></i></button> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <input type="text" placeholder="Add Question" name="desc" id="desc">
+                    </div>
+                    <div class="col-lg-3 ">
+                        <select name="options" id="options">
+                            <option value="text">TextBox</option>
+                            <option value="checkbox">Checkbox</option>
+                            <option value="radio">Radio</option>
+                            <option value="textarea">Textarea</option>
+                            <option value="file">File</option>
+                            <option value="date">Date</option>
+                            <option value="time">Time</option>
+                            <option value="datetime-local">Date & Time</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <button onclick="add()" class="btn-primary btn"><i class='fas fa-plus'></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="customForm">
+                <div class="contentItems">
+                    --ADD CONTENT--
+                </div>
+            </div>
+
+            <div class="btn-center">
+                <button class="btn btn-success" onclick="submit()">Submit</button>
+            </div>
+            <!-- <a href="preview.html" target="_blank">Preview</a> -->
+    
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="/js/template.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var t = new Template();
+            t.setTitle("Registration form");
+            t.setDescription("Template for a simple registration form");
+            t.setBackgroundColor("#ebdef0");
+            t.set("What's your name ?", "text", false);
+            t.set("What's your email ?", "text", false);
+            t.setMultiValued("What domain do you want to be in ?", "checkbox", ["App development", "Web development", "Creatives", "PR"], false);
+            t.set("Why should we choose you ?", "textarea", false);
+            t.render();
+
+        }
+    </script>
+</body>
+
+</html>
