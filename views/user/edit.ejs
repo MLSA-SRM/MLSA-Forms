@@ -34,45 +34,47 @@
 
     <div class="formContent">
         <div id="margin-dummy"></div>
-        <h1 id="head">Custom Form Builder</h1>
+        <h1 id="head">
+            <%=form.heading%>
+        </h1>
         <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
 
         <div id="mySidepanel" class="sidepanel">
             <ul class="nav flex-column">
                 <li>
-                    Background - <input type="color" id="bgcolor" value="#3b8cb5">
+                    Background - <input type="color" id="bgcolor" value="<%=form.backgroundColor%>">
                 </li>
                 <li>
                     Add Background Image
                     <input type="file" name="image1" id="image1" />
                     <div class="image-preview" id="imagePreview">
-                        <img src="" class="image-preview__image" alt="Image Preview" />
+                        <img src="<%=form.backgroundImage%>" class="image-preview__image" alt="Image Preview" />
                         <span class="image-preview__default-text">Image Preview</span>
                     </div>
                     <button class="button button1" id="mybtn">Remove</button>
                     <button class="button button1" id="mybtn1">Apply</button>
-                    <script src="./index.js"></script>
+                    <!-- <script src="./index.js"></script> -->
                 </li>
                 <li>
-                    Text - <input type="color" id="color">
+                    Text - <input type="color" id="color" value="<%=form.textColor%>">
                 </li>
                 <li>
-                    Font Size - <input type="number" value="16" min="10" id="fsize">
+                    Font Size - <input type="number" value="16" value=">%=form.fontSize%>" min="10" id="fsize">
                 </li>
                 <li>
                     Font Family - <select name="font" id="ffamily">
-                        <option value="Arial" style="font-family: Arial;">Arial</option>
-                        <option value="Algerian" style="font-family: Algerian;">Algerian</option>
-                        <option value="Brush Script MT" style="font-family: Brush Script MT;">Brush Script MT</option>
-                        <option value="Calibri" style="font-family: Calibri;">Calibri</option>
-                        <option value="Cambria" style="font-family: Cambria;">Cambria</option>
-                        <option value="Copperplate" style="font-family: Copperplate;">Copperplate</option>
-                        <option value="Didot" style="font-family: Didot;">Didot</option>
-                        <option value="Garamond" style="font-family: Garamond;">Garamond</option>
-                        <option value="Lucida Bright" style="font-family: Lucida Bright;">Lucida Bright</option>
-                        <option value="Monaco" style="font-family: Monaco;">Monaco</option>
-                        <option value="Optima" style="font-family: Optima;">Optima</option>
-                        <option value="Times New Roman" style="font-family: Times New Roman;">Times New Roman</option>
+                        <option value="Arial" style="font-family: Arial;" <%=(form.fontFamily==='Arial')?'selected':''%>>Arial</option>
+                        <option value="Algerian" style="font-family: Algerian;"<%=(form.fontFamily==='Algerian')?'selected':''%>>Algerian</option>
+                        <option value="Brush Script MT" style="font-family: Brush Script MT;" <%=(form.fontFamily==='Brush Script MT')?'selected':''%>>Brush Script MT</option>
+                        <option value="Calibri" style="font-family: Calibri;" <%=(form.fontFamily==='Calibri')?'selected':''%>>Calibri</option>
+                        <option value="Cambria" style="font-family: Cambria;" <%=(form.fontFamily==='Cambria')?'selected':''%>>Cambria</option>
+                        <option value="Copperplate" style="font-family: Copperplate;" <%=(form.fontFamily==='Copperplate')?'selected':''%>>Copperplate</option>
+                        <option value="Didot" style="font-family: Didot;" <%=(form.fontFamily==='Didot')?'selected':''%>>Didot</option>
+                        <option value="Garamond" style="font-family: Garamond;" <%=(form.fontFamily==='Garamond')?'selected':''%>>Garamond</option>
+                        <option value="Lucida Bright" style="font-family: Lucida Bright;" <%=(form.fontFamily==='Lucida Bright')?'selected':''%>>Lucida Bright</option>
+                        <option value="Monaco" style="font-family: Monaco;" <%=(form.fontFamily==='Monaco')?'selected':''%>>Monaco</option>
+                        <option value="Optima" style="font-family: Optima;" <%=(form.fontFamily==='Optima')?'selected':''%>>Optima</option>
+                        <option value="Times New Roman" style="font-family: Times New Roman;" <%=(form.fontFamily==='Times New Roman')?'selected':''%>>Times New Roman</option>
                     </select>
                 </li>
                 <li style="text-align:center ;">
@@ -84,14 +86,14 @@
         <div class="content">
 
             <div id="img-logo-container">
-                <img id="img-logo-bg" style="display: block;" />
-                <img id="img-logo" style="display: block;" />
+                <img id="img-logo-bg" src="<%=form.logo%>" style="display: block;" />
+                <img id="img-logo" src="<%=form.backgroundImage%>" style="display: block;" />
             </div>
 
             <div class="addData">
                 <div class="row">
                     <div class="col-sm-10 ">
-                        <input type="text" placeholder="Add Heading" id='heading'>
+                        <input type="text" placeholder="Add Heading" value="<%=form.heading%>" id='heading'>
                     </div>
                     <div class="col-sm-2 ">
                         <button onclick="addHeading()" class="btn-primary blue btn"><i class='fas fa-plus'></i></button><br>
@@ -99,7 +101,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-10 ">
-                        <textarea name="formDesc" id="formDesc" class="materialize-textarea" placeholder="Add Form Description"></textarea><br>
+                        <textarea name="formDesc" id="formDesc" class="materialize-textarea" placeholder="Add Form Description"><%=form.description%></textarea><br>
                         <span class="info">*Description will be visible in preview page.</span>
                     </div>
                     <div class="col-sm-2  descButton">
@@ -147,9 +149,13 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script>
-        const action = "/user/form/create";
+        var arr = <%- JSON.stringify(form.receivedObj) %>;
+        const url = "/user/form/edit/<%=form._id%>";
     </script>
     <script src="/js/app.js"></script>
+    <script>
+        printData();
+    </script>
 </body>
 
 </html>
