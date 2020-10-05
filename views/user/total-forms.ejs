@@ -57,7 +57,7 @@
                                             <tbody>
                                                 <% forms.forEach(e => {%>
                                                     <tr>
-                                                        <td class="sorting_1"><i class=" fas fa-pencil-alt" onclick=""></i>
+                                                        <td class="sorting_1"><i class="fas fa-pencil-alt" onclick="location.replace('/user/form/edit/<%=e._id%>')" onclick=""></i>
                                                             <i class=" fas fa-trash-alt" onclick="location.replace('/user/form/delete/<%=e._id%>')"></i></td>
                                                         <td>
                                                             <%=e.heading%>

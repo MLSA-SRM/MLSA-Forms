@@ -14,6 +14,10 @@ router.post('/create', formController.postFormCreate);
 
 router.get('/delete/:id', formController.getFormDelete);
 
+router.get('/edit/:id', formController.getEditForm);
+
+router.post('/edit/:id', formController.postEditForm);
+
 
 //begin - routes for templates
 
