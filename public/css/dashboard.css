@@ -8,11 +8,23 @@
 .dashboardContent .col-lg-9{
     padding: 0;
 }
+.dashboardContent .card-header .col-lg-3{
+    padding-right: 0;
+}
+.dashboardContent .btn{
+    border-color: #0096c7;
+}
+.dashboardContent .dt-button-collection, .dashboardContent .dt-button-collection a,.dashboardContent thead th{
+    background-color: #0096c7;
+    color: #fff;
+}
+.dashboardContent .dt-buttons .btn{
+    border-color: #cacaca;
+}
 .dashboardContent .row{
     margin: 0;
 }
 .dashboardContent h5{
-    color: #fff;
     margin: 0;
 }
 .dashboardContent td .form-group{
@@ -21,45 +33,52 @@
 .dashboardContent {
     text-align: center;
 }
-.dashboardContent .dropdown-item{
-    background-color: #3b8cb5;
+.dashboardContent .nav-user-info{
+    background-color: #0096c7;
     color: #fff;
 }
-.dashboardContent table{
-    color: #2f3542 !important;
+.dashboardContent .nav-user-info ~ a.dropdown-item{
+    color: #0096c7;
 }
-.dashboardContent .btn{
-    background-color: #3b8cb5;
+.dashboardContent table{
+    color: #fff !important;
+}
+
+.dashboardContent .btn-success, .dashboardContent .btn-primary {
+    background-color: #0096c7;
     color: #fff;
 }
 .dashboardContent thead tr{
-    background-color: #3b8cb5;
+    background-color: #0096c7;
 }
 .dashboardContent thead th{
     color: #fff !important;
 }
+.dashboardContent table{
+    background-color: #0096c7;
+}
 .dashboardContent tbody tr:nth-child(even){
-    background-color: #3b8cb5;
-    color: #fff;
+    background-color: #90e0ef;
+    color: #2F4300;
 }
 .dashboardContent tbody tr:nth-child(odd){
-    background-color: #fff;
+    background-color: #00b4d8;
 }
 .dashboardContent tbody tr:nth-child(odd) .btn{
-    background-color: #fff;
-    color: #2f3542;
-    border-color: #2f3542;
+    background-color: #00b4d8;
+    color: #fff;
+    border-color: #fff;
 }
 .dashboardContent tbody tr:nth-child(odd) .btn:hover{
-    background-color: #3b8cb5;
-    border-color: #fff;
-    color: #fff;
+    background-color: #90e0ef;
+    border-color: #2F4300;
+    color: #2F4300;
 }
 
 .dashboardContent tbody tr:nth-child(even) .btn{
     background-color: rgba(0,0,0,0);
-    color: #fff;
-    border-color: #fff;
+    color: #2F4300;
+    border-color: #2F4300;
 }
 .dashboardContent tbody tr input{
     border-width: 0;
@@ -67,21 +86,25 @@
 .dashboardContent tbody tr input:focus{
     outline: none;
 }
-.dashboardContent tbody tr:nth-child(even) input{
+.dashboardContent tbody tr:nth-child(n) input{
     background-color: rgba(0,0,0,0);
     color: #fff;
 }
+.dashboardContent tbody tr:nth-child(even) input{
+    color: #2F4300;
+}
 .dashboardContent tbody tr:nth-child(even) .btn:hover{
-    background-color: #fff;
-    border-color: #2f3542;
-    color: #2f3542;
-
+    background-color: #00b4d8;
+    border-color: #fff;
+    color: #fff;
 }
 .dashboardContent .pagination .page-item.active .page-link{
-    background-color: #3b8cb5;
+    background-color: #0096c7;
+    border-color: #0096c7;
 }
 .dashboardContent .pagination .page-item .page-link:hover{
-    background-color: #3b8cb5;
+    background-color: #00b4d8;
+    border-color: #00b4d8;
 }
 .dashboardContent .dt-buttons,.dashboardContent #example3_filter{
     display: inline-block;
@@ -89,12 +112,15 @@
 }
 .dashboardContent .dt-buttons{
     text-align: left;
-    width: 70%;
+    width: 75%;
 }
 .dashboardContent #example3_filter{
     text-align: right;
-    width: 30%;
+    width: 25%;
 }
 .dashboardContent .temp ,.dashboardContent .formCon{
     height: 100vh;
 }
+.dashboardContent .temp .btn-primary{
+    color: #fff;
+} 

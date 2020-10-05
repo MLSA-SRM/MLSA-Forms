@@ -1,3 +1,4 @@
+
 var obj = {};
 var arr = [];
 var prr = [];
@@ -9,31 +10,22 @@ function addHeading() {
   heading = document.getElementById("heading").value;
   document.querySelector("h1").innerText = heading;
 }
-function checkH1(){
-    if(document.getElementById('head').innerText==""){
-        document.getElementById('head').innerText="Enter Form Name";
-    }
-}
-function checkP(){
-    if(document.getElementById('formDescription').innerText==""){
-        document.getElementById('formDescription').innerText="Enter Form Description";
-    }
-}
 
 function add() {
-  var desc = document.getElementById("desc").value;
-  var option = document.getElementById("options").value;
-  obj = {
-    desc: desc,
-    option: option,
-    noOfItem: [],
-    required: false,
-  };
-  arr.push(obj);
-  document.getElementById("desc").value = "";
-  printData();
-}
 
+    var desc = document.getElementById('desc').value;
+    var option = document.getElementById('options').value;
+    obj = {
+        'desc': desc,
+        'option': option,
+        'noOfItem': [],
+        required: false
+    };
+    arr.push(obj);
+    document.getElementById('desc').value = "";
+    console.log(arr);
+    printData();
+  }
 function deleteItem(e) {
   arr[e.id].noOfItem.splice(e.value, 1);
   printData();
@@ -249,8 +241,8 @@ async function submit() {
   let formData = new FormData();
   let data = JSON.stringify({
     data: arr,
-    heading: document.getElementById("head").innerText,
-    description: document.getElementById("formDescription").innerText,
+    heading: document.getElementById("heading").value,
+    description: document.getElementById("formDesc").value,
     fontFamily: document.getElementById("ffamily").value,
     fontSize: document.getElementById("fsize").value,
     textColor: document.getElementById("color").value,
