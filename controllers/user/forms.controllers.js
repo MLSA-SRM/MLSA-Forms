@@ -3,6 +3,7 @@ const formCodeGenerator = require('../../utils/unique-id-validator');
 
 const FormModel = require('../../models/Form.model');
 const AdminModel = require('../../models/Admin.model');
+const editForm = require('../../utils/edit-form');
 
 exports.getTotalForms = async(req, res, next) => {
     try {
@@ -53,7 +54,8 @@ exports.postFormCreate = async(req, res, next) => {
         backgroundColor: data.backgroundColor,
         userID: req.session.user._id,
         logo: (req.files) ? (req.files.logo) ? (req.files.logo[0].url) ? req.files.logo[0].url : null : null : null,
-        backgroundImage: (req.files) ? (req.files.background) ? (req.files.background[0].url) ? req.files.background[0].url : null : null : null
+        backgroundImage: (req.files) ? (req.files.background) ? (req.files.background[0].url) ? req.files.background[0].url : null : null : null,
+        receivedObj: data.data
     };
     const newForm = new FormModel(formData);
     const form = await newForm.save();
@@ -66,8 +68,13 @@ exports.postFormCreate = async(req, res, next) => {
 
 // template -- feedback
 exports.getFeedbackTemplate = (req, res, next) => {
-    res.render('user/template-feedback');
+    res.render('user/templates/template-feedback');
 }
+
+exports.getRegistrationTemplate = (req, res, next) => {
+        res.render('user/templates/template-registration');
+    }
+    //
 
 exports.getFormDelete = async(req, res, next) => {
     try {
@@ -80,6 +87,60 @@ exports.getFormDelete = async(req, res, next) => {
             await req.user.save();
         }
         res.redirect('/user/form')
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.getEditForm = async(req, res, next) => {
+    try {
+        const id = req.params.id;
+        const form = await FormModel.findById(id);
+        if (form) {
+            return res.render('user/edit', { form });
+        }
+        res.redirect('/user/form')
+    } catch (er) {
+        next(er);
+    }
+}
+
+exports.postEditForm = async(req, res, next) => {
+    try {
+        let data = JSON.parse(JSON.parse(req.body.data));
+        if (data.data.length === 0) {
+            return res.json({ msg: 'Invalid' });
+        }
+        const form = await FormModel.findById(req.params.id);
+        if (!form) {
+            return res.json({ msg: 'Invalid' });
+        }
+        const obj = editForm(data.data, form.metaData);
+        form.html = obj.html;
+        form.metaData = obj.headings;
+        form.receivedObj = data.data;
+        if (form.description !== data.description) {
+            form.description = data.description;
+        }
+        if (form.fontFamily !== data.fontFamily) {
+            form.fontFamily = data.fontFamily;
+        }
+        if (form.fontSize !== data.fontSize) {
+            form.fontSize = data.fontSize;
+        }
+        if (form.textColor !== data.textColor) {
+            form.textColor = data.textColor;
+        }
+        if (form.description !== data.description) {
+            form.description = data.description;
+        }
+        if (form.description !== data.description) {
+            form.description = data.description;
+        }
+        form.logo = (req.files) ? (req.files.logo) ? (req.files.logo[0].url) ? req.files.logo[0].url : form.logo : form.logo : form.logo;
+        form.backgroundImage = (req.files) ? (req.files.background) ? (req.files.background[0].url) ? req.files.background[0].url : form.logo : form.logo : form.logo;
+        await form.save();
+        return res.status(200).json({ msg: 'OK', url: 'http://localhost:3000/forms/' + form.formCode + '?preview=true' });
     } catch (err) {
         next(err);
     }

@@ -1,8 +1,12 @@
 table.dataTable.fixedHeader-floating,
 table.dataTable.fixedHeader-locked {
-  background-color: white;
+  background-color: #0096c7;
+  color: #fff !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+table.dataTable.fixedHeader-floating th{
+  color: #fff;
 }
 
 table.dataTable.fixedHeader-floating {

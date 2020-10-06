@@ -8,6 +8,7 @@
 .dashboardContent .col-lg-9{
     padding: 0;
 }
+
 .dashboardContent .card-header .col-lg-3{
     padding-right: 0;
 }
@@ -118,9 +119,35 @@
     text-align: right;
     width: 25%;
 }
-.dashboardContent .temp ,.dashboardContent .formCon{
-    height: 100vh;
+.dashboardContent .response .dt-buttons{
+    width: 70%;
+    text-align: left;
+    display: inline-block;
+}
+.dashboardContent .response #example_filter{
+    width: 30%;
+    display: inline-block;
+    text-align: right;
+}
+.dashboardContent .response th input{
+    background-color: rgba(0,0,0,0);
+    color:#fff !important;
+}
+.dashboardContent .response .pagination li a{
+    background-color: #0096c7;
+    color: #fff;
+}
+.dashboardContent .response th input:focus{
+    color: #ff0;
+}
+.dashboardContent .response .pagination li a:hover{
+    background-color: #00b4d8;
+    border-color: #00b4d8;
 }
 .dashboardContent .temp .btn-primary{
     color: #fff;
 } 
+.dashboardContent .fixedHeader-floating thead tr{
+    background-color: #0096c7;
+    color: #fff;
+}

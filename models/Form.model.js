@@ -22,6 +22,7 @@ const formSchema = new Schema({
         name: { type: String },
         options: []
     }],
+    receivedObj:{type:Object},
     responses: [],
     userID: {
         type: Schema.Types.ObjectId,
