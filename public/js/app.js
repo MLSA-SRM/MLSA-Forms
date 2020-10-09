@@ -1,5 +1,6 @@
+
 var obj = {};
-var prr = [];
+var arr = [];
 var s = "",
     formDesc = "";
 var heading = "";
@@ -241,8 +242,8 @@ async function submit() {
     let formData = new FormData();
     let data = JSON.stringify({
         data: arr,
-        heading: document.getElementById("heading").value,
-        description: document.getElementById("formDesc").value,
+        heading: document.getElementById("head").innerText,
+        description: document.getElementById("formDescription").innerText,
         fontFamily: document.getElementById("ffamily").value,
         fontSize: document.getElementById("fsize").value,
         textColor: document.getElementById("color").value,

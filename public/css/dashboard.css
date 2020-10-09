@@ -1,0 +1,214 @@
+.dashboardContent .card {
+    /* padding:3%; */
+    box-shadow: -4px 0px 8px 0px rgba(209,209,214,0.75);
+}
+.col-lg-12{
+    padding: 0;
+}
+.dashboardContent .col-lg-9{
+    padding: 0;
+}
+
+.dashboardContent .card-header .col-lg-3{
+    padding-right: 0;
+}
+.dashboardContent .btn{
+    border-color: #0096c7;
+}
+.dashboardContent .dt-button-collection, .dashboardContent .dt-button-collection a{
+    background-color: #fff;
+    color: #7171a6;
+}
+.dashboardContent thead th{
+    background-color: #1E3859;
+}
+.dashboardContent .dt-buttons .btn{
+    border-color: #cacaca;
+}
+.dashboardContent .row{
+    margin: 0;
+}
+.dashboardContent h5{
+    margin: 0;
+}
+.dashboardContent td .form-group{
+    display: inline-block;
+}
+.dashboardContent {
+    text-align: center;
+}
+.dashboardContent .nav-user-info{
+    background-color: #0096c7;
+    color: #fff;
+}
+.dashboardContent .nav-user-info ~ a.dropdown-item{
+    color: #0096c7;
+}
+.dashboardContent table{
+    color: #fff !important;
+}
+
+.dashboardContent .btn-success, .dashboardContent .btn-primary {
+    background-color: #1D89E4;
+    color: #fff;
+}
+.dashboardContent thead tr{
+    background-color: #0096c7;
+}
+.dashboardContent thead th{
+    color: #fff !important;
+}
+.dashboardContent table{
+    background-color: #0096c7;
+}
+.dashboardContent tbody tr:nth-child(even){
+    background-color: #1565C0;
+}
+.dashboardContent tbody tr:nth-child(odd){
+    background-color: #BBDEFB;
+    color: #2F4300;
+
+}
+.dashboardContent tbody tr:nth-child(odd) .btn{
+    background-color: #BBDEFB;
+    border-color: #2F4300;
+    color: #2F4300;
+}
+.dashboardContent tbody tr:nth-child(odd) .btn:hover{
+    background-color: #1565C0;
+    color: #fff;
+    border-color: #fff;
+}
+.dashboardContent tbody tr:nth-child(even) .btn{
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    border-color: #fff;
+}
+.dashboardContent tbody tr input{
+    border-width: 0;
+}
+.dashboardContent tbody tr input:focus{
+    outline: none;
+}
+.dashboardContent tbody tr:nth-child(n) input{
+    background-color: rgba(0,0,0,0);
+    color: #2F4300;
+}
+.dashboardContent tbody tr:nth-child(even) input{
+    color: #fff;
+}
+.dashboardContent tbody tr:nth-child(even) .btn:hover{
+    background-color: #BBDEFB;
+    border-color: #2F4300;
+    color: #2F4300;
+}
+.dashboardContent .pagination .page-item.active .page-link{
+    background-color: #1565C0;
+    border-color: #1565C0;
+    color: #fff;
+}
+.dashboardContent .pagination .page-item .page-link:hover{
+    background-color: #BBDEFB;
+    border-color: #BBDEFB;
+    color: #2F4300;
+}
+.dashboardContent .dt-buttons,.dashboardContent #example3_filter{
+    display: inline-block;
+    margin: 1% 0 2%;
+}
+.dashboardContent .dt-buttons{
+    text-align: left;
+    width: 75%;
+}
+.dashboardContent #example3_filter{
+    text-align: right;
+    width: 25%;
+}
+.dashboardContent .response .dt-buttons{
+    width: 70%;
+    text-align: left;
+    display: inline-block;
+}
+.dashboardContent .response #example_filter{
+    width: 30%;
+    display: inline-block;
+    text-align: right;
+}
+.dashboardContent .response th input{
+    background-color: rgba(0,0,0,0);
+    color:#fff !important;
+}
+.dashboardContent .response .pagination li a.active{
+    background-color: #1565C0;
+    border-color: #1565C0;
+    color: #fff;
+}
+.dashboardContent .response th input:focus{
+    color: #ff0;
+}
+.dashboardContent .response .pagination li a:hover{
+    background-color: #BBDEFB;
+    border-color: #2F4300;
+    color: #2F4300;
+}
+.dashboardContent .temp .btn-primary{
+    color: #fff;
+} 
+.dashboardContent{
+    overflow-x: hidden;
+}
+.dashboardContent table{
+    overflow-x: scroll;
+}
+.dashboardContent thead th{
+    vertical-align: middle;
+}
+@media (max-width:1100px){
+    .dashboardContent .card-header .col-lg-3{
+        padding:5%;
+    }
+    .dashboardContent .dt-buttons{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .dashboardContent #example3_filter{
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    .dashboardContent .response .dt-buttons{
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    .dashboardContent .response #example_filter{
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    .dashboardContent td i{
+        display: block;
+    }
+    
+    .dashboardContent #example3_info{
+        margin-bottom: 2%;
+    }
+    .dashboardContent .dashboard #example3_paginate > ul{
+        justify-content: center;
+    }
+}
+@media (max-width:900px){
+    .dashboard .card-header .col-lg-3{
+        padding-right: auto;
+    }
+    .dashboardContent .temp {
+        padding:0;
+    }
+    .dashboardContent a.btn-success{
+        display: block;
+        float: none;
+        margin: 5% 25% 0;
+        width: 50%;
+    }
+}

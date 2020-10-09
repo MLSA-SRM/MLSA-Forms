@@ -29,6 +29,37 @@ body {
   display: block;
   transition: 0.3s;
 }
+#formDescription{
+    margin:2% auto;
+  text-align: center;
+}
+#formDescription,#head{
+    outline: none;
+}
+.sidepanel  {
+    width: 0;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 17px;
+    background-color:  #f8f8f8;
+    color  : #111;
+    overflow-x: hidden;
+    padding:5% 2%;
+  }
+  
+  .sidepanel li {
+    margin: 10px 0;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .openbtn:hover {
+    background-color:#444;
+  }
+  
 
 .openbtn:hover {
   background-color: #444;
@@ -149,7 +180,7 @@ textarea {
 
 #customForm input[type="text"] {
   margin: 1% auto;
-  width: 91%;
+  width: 90.5%;
   /* border-style: none; */
 }
 
@@ -368,7 +399,6 @@ nav li:hover {
   #head {
     margin-top: 0.5rem;
     font-size: 2rem;
-    color: #fff;
   }
   #customForm input[type="text"] {
     width: 86%;
@@ -378,7 +408,6 @@ nav li:hover {
   }
   #headLogo {
     text-align: center;
-    color: #fff;
   }
   .addData .btn-primary i {
     font-size: 1rem;
@@ -418,14 +447,12 @@ nav li:hover {
     margin: 4% 1% 5%;
     border-width: 0;
   }
-  .formContent {
-    background: rgba(0, 0, 0, 0);
-  }
+ 
   .info {
     font-size: 80%;
   }
   #customForm input[type="text"] {
-    width: 87%;
+    width: 87.5%;
   }
   #customForm button {
     margin-left: 2.5%;
@@ -435,6 +462,15 @@ nav li:hover {
   }
   #img-logo-container {
     height: 80px;
+  }
+  .formHeaderContent{
+    background-color: #fff;
+    margin: 5% 1% 1%;
+    padding: 10% 2% 5%;
+    border-radius: 16px;
+  }
+  .formContent{
+    background-color: rgba(0, 0,0,0 );
   }
 }
 

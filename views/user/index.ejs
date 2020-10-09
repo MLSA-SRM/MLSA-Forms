@@ -34,9 +34,15 @@
 
     <div class="formContent">
         <div id="margin-dummy"></div>
-        <h1 id="head">Custom Form Builder</h1>
-        <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
-
+        <div class="formHeaderContent">
+            <h1 id="head" contenteditable="true" onmousemove="checkH1()">Custom Form Builder</h1>
+            <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
+            <p id="formDescription" contenteditable="true"  onmousemove="checkP()">----Add Description----</p>
+            <div id="img-logo-container">
+                <img id="img-logo-bg" style="display: block;" />
+                <img id="img-logo" style="display: block;" />
+            </div>
+        </div>
         <div id="mySidepanel" class="sidepanel">
             <ul class="nav flex-column">
                 <li>
@@ -83,29 +89,9 @@
 
         <div class="content">
 
-            <div id="img-logo-container">
-                <img id="img-logo-bg" style="display: block;" />
-                <img id="img-logo" style="display: block;" />
-            </div>
+            
 
             <div class="addData">
-                <div class="row">
-                    <div class="col-sm-10 ">
-                        <input type="text" placeholder="Add Heading" id='heading'>
-                    </div>
-                    <div class="col-sm-2 ">
-                        <button onclick="addHeading()" class="btn-primary blue btn"><i class='fas fa-plus'></i></button><br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-10 ">
-                        <textarea name="formDesc" id="formDesc" class="materialize-textarea" placeholder="Add Form Description"></textarea><br>
-                        <span class="info">*Description will be visible in preview page.</span>
-                    </div>
-                    <div class="col-sm-2  descButton">
-                        <button class="btn  btn-primary blue btn-md" onclick="addDesc()"><i class='fas fa-plus'></i></button>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-lg-7">
                         <input type="text" placeholder="Add Question" name="desc" id="desc">
@@ -129,8 +115,7 @@
             </div>
             <div id="customForm">
                 <div id="null" class="text-center">
-                    <h5>
-                        </h>--ADD CONTENT--</h5>
+                    <h5></h>----ADD CONTENT----</h5>
                 </div>
             </div>
 
