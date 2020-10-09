@@ -34,9 +34,15 @@
 
     <div class="formContent">
         <div id="margin-dummy"></div>
-        <h1 id="head" contenteditable="true" onmousemove="checkH1()">Custom Form Builder</h1>
-        <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
-        <p id="formDescription" contenteditable="true"  onmousemove="checkP()">----Add Description----</p>
+        <div class="formHeaderContent">
+            <h1 id="head" contenteditable="true" onmousemove="checkH1()">Custom Form Builder</h1>
+            <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
+            <p id="formDescription" contenteditable="true"  onmousemove="checkP()">----Add Description----</p>
+            <div id="img-logo-container">
+                <img id="img-logo-bg" style="display: block;" />
+                <img id="img-logo" style="display: block;" />
+            </div>
+        </div>
         <div id="mySidepanel" class="sidepanel">
             <ul class="nav flex-column">
                 <li>
@@ -83,10 +89,7 @@
 
         <div class="content">
 
-            <div id="img-logo-container">
-                <img id="img-logo-bg" style="display: block;" />
-                <img id="img-logo" style="display: block;" />
-            </div>
+            
 
             <div class="addData">
                 <div class="row">

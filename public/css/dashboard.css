@@ -15,9 +15,12 @@
 .dashboardContent .btn{
     border-color: #0096c7;
 }
-.dashboardContent .dt-button-collection, .dashboardContent .dt-button-collection a,.dashboardContent thead th{
-    background-color: #0096c7;
-    color: #fff;
+.dashboardContent .dt-button-collection, .dashboardContent .dt-button-collection a{
+    background-color: #fff;
+    color: #7171a6;
+}
+.dashboardContent thead th{
+    background-color: #1E3859;
 }
 .dashboardContent .dt-buttons .btn{
     border-color: #cacaca;
@@ -46,7 +49,7 @@
 }
 
 .dashboardContent .btn-success, .dashboardContent .btn-primary {
-    background-color: #0096c7;
+    background-color: #1D89E4;
     color: #fff;
 }
 .dashboardContent thead tr{
@@ -59,27 +62,27 @@
     background-color: #0096c7;
 }
 .dashboardContent tbody tr:nth-child(even){
-    background-color: #90e0ef;
-    color: #2F4300;
+    background-color: #1565C0;
 }
 .dashboardContent tbody tr:nth-child(odd){
-    background-color: #00b4d8;
+    background-color: #BBDEFB;
+    color: #2F4300;
+
 }
 .dashboardContent tbody tr:nth-child(odd) .btn{
-    background-color: #00b4d8;
+    background-color: #BBDEFB;
+    border-color: #2F4300;
+    color: #2F4300;
+}
+.dashboardContent tbody tr:nth-child(odd) .btn:hover{
+    background-color: #1565C0;
     color: #fff;
     border-color: #fff;
 }
-.dashboardContent tbody tr:nth-child(odd) .btn:hover{
-    background-color: #90e0ef;
-    border-color: #2F4300;
-    color: #2F4300;
-}
-
 .dashboardContent tbody tr:nth-child(even) .btn{
     background-color: rgba(0,0,0,0);
-    color: #2F4300;
-    border-color: #2F4300;
+    color: #fff;
+    border-color: #fff;
 }
 .dashboardContent tbody tr input{
     border-width: 0;
@@ -89,23 +92,25 @@
 }
 .dashboardContent tbody tr:nth-child(n) input{
     background-color: rgba(0,0,0,0);
-    color: #fff;
-}
-.dashboardContent tbody tr:nth-child(even) input{
     color: #2F4300;
 }
-.dashboardContent tbody tr:nth-child(even) .btn:hover{
-    background-color: #00b4d8;
-    border-color: #fff;
+.dashboardContent tbody tr:nth-child(even) input{
     color: #fff;
 }
+.dashboardContent tbody tr:nth-child(even) .btn:hover{
+    background-color: #BBDEFB;
+    border-color: #2F4300;
+    color: #2F4300;
+}
 .dashboardContent .pagination .page-item.active .page-link{
-    background-color: #0096c7;
-    border-color: #0096c7;
+    background-color: #1565C0;
+    border-color: #1565C0;
+    color: #fff;
 }
 .dashboardContent .pagination .page-item .page-link:hover{
-    background-color: #00b4d8;
-    border-color: #00b4d8;
+    background-color: #BBDEFB;
+    border-color: #BBDEFB;
+    color: #2F4300;
 }
 .dashboardContent .dt-buttons,.dashboardContent #example3_filter{
     display: inline-block;
@@ -133,21 +138,77 @@
     background-color: rgba(0,0,0,0);
     color:#fff !important;
 }
-.dashboardContent .response .pagination li a{
-    background-color: #0096c7;
+.dashboardContent .response .pagination li a.active{
+    background-color: #1565C0;
+    border-color: #1565C0;
     color: #fff;
 }
 .dashboardContent .response th input:focus{
     color: #ff0;
 }
 .dashboardContent .response .pagination li a:hover{
-    background-color: #00b4d8;
-    border-color: #00b4d8;
+    background-color: #BBDEFB;
+    border-color: #2F4300;
+    color: #2F4300;
 }
 .dashboardContent .temp .btn-primary{
     color: #fff;
 } 
-.dashboardContent .fixedHeader-floating thead tr{
-    background-color: #0096c7;
-    color: #fff;
+.dashboardContent{
+    overflow-x: hidden;
+}
+.dashboardContent table{
+    overflow-x: scroll;
+}
+.dashboardContent thead th{
+    vertical-align: middle;
+}
+@media (max-width:1100px){
+    .dashboardContent .card-header .col-lg-3{
+        padding:5%;
+    }
+    .dashboardContent .dt-buttons{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .dashboardContent #example3_filter{
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    .dashboardContent .response .dt-buttons{
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    .dashboardContent .response #example_filter{
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    .dashboardContent td i{
+        display: block;
+    }
+    
+    .dashboardContent #example3_info{
+        margin-bottom: 2%;
+    }
+    .dashboardContent .dashboard #example3_paginate > ul{
+        justify-content: center;
+    }
+}
+@media (max-width:900px){
+    .dashboard .card-header .col-lg-3{
+        padding-right: auto;
+    }
+    .dashboardContent .temp {
+        padding:0;
+    }
+    .dashboardContent a.btn-success{
+        display: block;
+        float: none;
+        margin: 5% 25% 0;
+        width: 50%;
+    }
 }

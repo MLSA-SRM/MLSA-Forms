@@ -1,6 +1,6 @@
 
 var obj = {};
-var prr = [];
+var arr = [];
 var s = "",
     formDesc = "";
 var heading = "";
@@ -242,8 +242,8 @@ async function submit() {
     let formData = new FormData();
     let data = JSON.stringify({
         data: arr,
-        heading: document.getElementById("heading").value,
-        description: document.getElementById("formDesc").value,
+        heading: document.getElementById("head").innerText,
+        description: document.getElementById("formDescription").innerText,
         fontFamily: document.getElementById("ffamily").value,
         fontSize: document.getElementById("fsize").value,
         textColor: document.getElementById("color").value,
@@ -298,17 +298,6 @@ function requi(s) {
 }
 
 async function viewImage() {
-<<<<<<< HEAD
-  var src = await generateBase64FromImage(
-    document.getElementById("image").files[0]
-  );
-  var img = document.getElementById("img-logo");
-  var imgBg = document.getElementById("img-logo-bg");
-  img.setAttribute("src", src);
-  imgBg.setAttribute("src", src);
-  var container = document.getElementById("img-logo-container");
-  container.style.display = "block";
-=======
     var src = await generateBase64FromImage(
         document.getElementById("image").files[0]
     );
@@ -318,5 +307,4 @@ async function viewImage() {
     imgBg.setAttribute("src", src);
     var container = document.getElementById("img-logo-container");
     container.style.display = "block";
->>>>>>> 8ee3013dd50eb24c72d11b9fc7e0752968118917
 }
