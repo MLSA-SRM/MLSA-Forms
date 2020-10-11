@@ -21,7 +21,20 @@
         font-family: <%=form.fontFamily%> !important;
         color: <%=form.textColor%> !important;
       }
-
+      @media (max-width: 480px){
+        h1{
+        margin:0;
+        font-size: 2rem;
+        }
+      }
+      .formHeaderContent{
+        padding: 0%;
+        padding-bottom: 5%;
+      }
+      .formHeaderContent img{
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+      }
       #customForm {
         color: <%=form.textColor%> !important;
       }
@@ -94,14 +107,16 @@
 
   <body>
     <div class="formContent">
-      <div id="img-logo-container" style="display: inline-block">
-        <img src="<%=form.logo%>" id="img-logo-bg" style="display:
-        block;"/> <img src="<%=form.logo%>" id="img-logo" style="display:
-        block;" />
+      <div class="formHeaderContent">
+        <div id="img-logo-container" style="display: inline-block">
+          <img src="<%=form.logo%>" id="img-logo-bg" style="display:
+          block;"/> <img src="<%=form.logo%>" id="img-logo" style="display:
+          block;" />
+        </div>
+  
+        <h1><%= form.heading %></h1>
+        <p><%=form.description%></p>
       </div>
-
-      <h1><%= form.heading %></h1>
-      <p><%=form.description%></p>
 
       <form
         id="customForm"
