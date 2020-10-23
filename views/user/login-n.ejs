@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		@font-face {
+			font-family: mont-l;
+			src: url("../assets/vendor/fonts/montserrat/Montserrat-Light.ttf");
+		}
+
+		@font-face {
+			font-family: mont-r;
+			src: url("../assets/vendor/fonts/montserrat/Montserrat-Light.ttf");
+		}
+
+		@font-face {
+			font-family: mont-sb;
+			src: url("../assets/vendor/fonts/montserrat/Montserrat-Light.ttf");
+		}
+
+		@font-face {
+			font-family: mont-b;
+			src: url("../assets/vendor/fonts/montserrat/Montserrat-Light.ttf");
+		}
+
+		body {
+			margin: 0;
+			font-family: mont-r;
+			font-size: 14px;
+			background-color: rgb(235,245,255);
+		}
+
+		#sprite {
+			position: fixed;
+			top: 10vh;
+			left: 2vw;
+			width: 50vw;
+			height: 80vh;
+			background-image: url("../assets/images/sprite.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			z-index: -1;
+		}
+
+		form {
+			position: fixed;
+			width: 480px;
+			padding: 16px;
+			padding-bottom: 32px;
+			background-color: rgb(250,250,250);
+			box-shadow: 0 6px 10px rgb(200,200,200);
+			box-sizing: border-box;
+			border-radius: 8px;
+		}
+
+		form h1 {
+			margin: 0;
+			font-size: 24px;
+			font-family: mont-sb;
+			color: rgb(40,40,40);
+		}
+
+		form label {
+			margin: 0;
+			font-size: 12px;
+			font-family: mont-l;
+			display: block;
+			margin-bottom: 2px;
+			color: rgb(100,100,100);
+		}
+
+		form input[type="text"], form input[type="email"], form input[type="password"] {
+			margin: 0;
+			font-size: 16px;
+			border: 0;
+			outline: 0;
+			border-bottom: 1px solid rgb(120,120,120);
+			background-color: rgba(0,0,0,0);
+			display: block;
+			width: 100%;
+			margin-bottom: 16px;
+			color: rgb(40,40,40);
+		}
+
+		form input[type="submit"] {
+			display: inline;
+			outline: 0;
+			border: 0;
+			box-sizing: border-box;
+			padding: 6px 16px;
+			background-color: rgb(0,128,255);
+			cursor: pointer;
+			text-transform: uppercase;
+			border-radius: 24px;
+			color: rgb(255,255,255);
+			font-size: 14px;
+			font-family: mont-sb;
+		}
+
+		.invoker {
+			margin: 4px 0 32px 0;
+			color: rgb(80,80,80);
+		}
+
+		.invoker a {
+			color: rgb(0,128,255);
+			cursor: pointer;
+			font-family: mont-sb;
+			text-decoration: none;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		function present() {
+
+			var ww = window.innerWidth;
+			var wh = window.innerHeight;
+
+			var b = document.getElementById("sign-in");
+
+			bh = b.offsetHeight;
+			bw = b.offsetWidth;
+
+			if( wh >= ww) {
+
+				b.style.width = "90vw";
+
+				b.style.right = "5vw";
+
+				document.getElementById("sprite").style.display="none";
+
+			} else {
+
+				if(ww > 1400) {
+					b.style.width = "640px";
+				} else {;
+					b.style.width = "480px";			
+				}
+
+				b.style.right = "40px";
+
+				document.getElementById("sprite").style.display="block";
+			}
+
+			b.style.top = (wh - bh)/2 + "px";
+
+
+		}
+
+
+		window.onload = function() {
+			present();
+		}
+
+		window.onresize = function() {
+			present();
+		}
+
+	</script>
+</head>
+<body>
+
+	<div id="sprite">
+	</div>
+
+	
+	<form id="sign-in" action="/user/signin" method="POST" >
+		<h1>Welcome back !</h1>
+		<label class="invoker" >Don't have an account ? <a href="/user/signup">Sign Up</a></label>
+		<label>Email</label>
+		<input type="email" name="email" required="true" />
+		<label>Password</label>
+		<input type="password" name="password" required="true" />
+		<input name="remember" type="checkbox" style="padding-bottom: 16px;"><span>Remember Me</span>
+		<br />
+		<br />
+		<% if(errorMessage.length > 0) {%>
+			<div style="color: rgb(255, 100,100); font-family: mont-sb;">
+				<%= "Error : " + errorMessage %>
+			</div><br /><br />
+		<% } %>
+		<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+		<input type="submit" value="Continue" />
+	</form>
+
+
+</body>
+</html>

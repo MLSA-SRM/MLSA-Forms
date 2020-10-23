@@ -8,14 +8,14 @@ exports.getSignIn = (req, res, next) => {
     if (req.session.user) {
         return res.redirect('/user/form');
     }
-    res.render('user/login');
+    res.render('user/login-n');
 }
 
 exports.getSignUp = (req, res, next) => {
     if (req.session.user) {
         return res.redirect('/user/form');
     }
-    res.render('user/sign-up');
+    res.render('user/sign-up-n');
 }
 
 exports.postSignIn = async(req, res, next) => {
@@ -23,17 +23,17 @@ exports.postSignIn = async(req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             req.flash('errorMessage', errors.array()[0].msg)
-            return res.redirect('/user/signup');
+            return res.redirect('/user/signin');
         }
         const { email, password } = req.body;
         const admin = await AdminModel.findOne({ email: email });
         if (!admin) {
             req.flash('errorMessage', 'Email address doesn\'t exists.');
-            return res.redirect('/user/signup');
+            return res.redirect('/user/signin');
         }
         if (!admin.validatePassword(password)) {
             req.flash('errorMessage', 'Password doesn\'t match.');
-            return res.redirect('/user/signup');
+            return res.redirect('/user/signin');
         }
         req.session.user = admin;
         if (req.body.remember) {
