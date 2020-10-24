@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/auth.css" />
+	<script type="text/javascript" src="js/auth.js"></script>
+</head>
+<body>
+
+	<div id="sprite">
+	</div>
+
+	<form id="sign-up">
+		<h1>Create acoount</h1>
+		<label class="invoker" >Alreay have an account ? <span id="sign-in-inovker" onclick="invokingButtonClicked(0)" >Sign In</span></label>
+		<label>Email</label>
+		<input type="email" name="email" required="true" />
+		<div style="float: right; width: 48%;">
+			<label>Last Name</label>
+			<input type="text" name="last_name" required="false" />
+		</div>
+		<div style="width: 47%;">
+			<label>First Name</label>
+			<input type="text" name="first_name" required="false" />
+		</div>
+		<label>Password</label>
+		<input type="password" name="password" required="true" />
+		<input type="submit" name="create_acc" value="Create" />
+	</form>
+
+	
+	<form id="sign-in" >
+		<h1>Welcome back !</h1>
+		<label class="invoker" >Don't have an account ? <span id="sign-up-inovker" onclick="invokingButtonClicked(1)">Sign Up</span></label>
+		<label>Email</label>
+		<input type="email" name="email" required="true" />
+		<label>Password</label>
+		<input type="password" name="password" required="true" />
+		<input type="submit" name="create_acc" value="Continue" />
+	</form>
+
+</body>
+</html>
