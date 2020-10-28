@@ -21,7 +21,7 @@ npm install
 ```
 - Run server using
 ```
-npm start
+node app.js
 ```
 - Then in Browser
 ```
