@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f909d114f1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/template-feedback-style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/materialize.css">
     <!-- <link rel="stylesheet" href="/css/materialize.min.css"> -->
 </head>
@@ -16,42 +16,48 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg  navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            MLSA Custom Form Maker
+            MLSA Forms
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-palette fa-lg" onclick="openNav()"></i></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-share-alt fa-lg"></i></a>
-              </li>
-              <li class="nav-item">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-eye fa-lg"></i></a>
-              </li>
-              <li class="nav-item">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-user fa-lg"></i></a>
-              </li>
-            </ul>
-          </div>
+            </li>
+        </ul>
     </nav>
-    
+
     <div class="formContent">
-        <h1 id="head">Custom Form Builder</h1>
-        <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
+        <div id="margin-dummy"></div>
+        <div class="formHeaderContent">
+            <h1 id="head" contenteditable="true" >Custom Form Builder</h1>
+            <p id="headLogo">Logo - <input type="file" id="image" accept="image/*" onchange="viewImage()"></p>
+            <p id="formDescription" contenteditable="true" >----Add Description----</p>
+            <div id="img-logo-container">
+                <img id="img-logo-bg" style="display: block;" />
+                <img id="img-logo" style="display: block;" />
+            </div>
+        </div>
         <div id="mySidepanel" class="sidepanel">
             <ul class="nav flex-column">
                 <li>
-                    Background - <input type="color" id="bgcolor" value="#eb6580">
+                    Background - <input type="color" id="bgcolor" value="#3b8cb5">
                 </li>
                 <li>
-                    Add Background Image 
-                    <input type="file" id="image1" accept="image/*">
-
+                    Add Background Image
+                    <input type="file" name="image1" id="image1" />
+                    <div class="image-preview" id="imagePreview">
+                        <img src="" class="image-preview__image" alt="Image Preview" />
+                        <span class="image-preview__default-text">Image Preview</span>
+                    </div>
+                    <button class="button button1" id="mybtn">Remove</button>
+                    <button class="button button1" id="mybtn1">Apply</button>
+                    <script src="./index.js"></script>
                 </li>
                 <li>
                     Text - <input type="color" id="color">
@@ -76,41 +82,21 @@
                     </select>
                 </li>
                 <li style="text-align:center ;">
-                    <button onclick="apply()" class="btn btn-primary">Apply</button>
+                    <button onclick="apply()" class="btn btn-primary blue">Apply</button>
                 </li>
             </ul>
-          </div>
-        
+        </div>
+
         <div class="content">
 
-            <div id="img-logo-container">
-                <img  id="img-logo-bg" style="display: block;" />
-                <img  id="img-logo" style="display: block;" />
-            </div>
+
 
             <div class="addData">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <input type="text" placeholder="Add Heading" id='heading'>
-                    </div>
-                    <div class="col-lg-2">
-                        <button onclick="addHeading()" class="btn-primary btn"><i class='fas fa-plus'></i></button><br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-10">
-                        <textarea name="formDesc" id="formDesc" class="materialize-textarea" placeholder="Add Form Description"></textarea><br>
-                        <span class="info">*Description will be visible in preview page.</span>
-                    </div>
-                    <div class="col-lg-2 descButton">
-                        <button class="btn  btn-primary btn-md" onclick="addDesc()"><i class='fas fa-plus'></i></button> 
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-lg-7">
                         <input type="text" placeholder="Add Question" name="desc" id="desc">
                     </div>
-                    <div class="col-lg-3 ">
+                    <div class="col-sm-10 col-md-10 col-lg-3 ">
                         <select name="options" id="options">
                             <option value="text">TextBox</option>
                             <option value="checkbox">Checkbox</option>
@@ -122,45 +108,51 @@
                             <option value="datetime-local">Date & Time</option>
                         </select>
                     </div>
-                    <div class="col-lg-2">
-                        <button onclick="add()" class="btn-primary btn"><i class='fas fa-plus'></i></button>
+                    <div class="col-sm-2 col-md-2 col-lg-2 quesADD">
+                        <button onclick="add()" class="btn-primary blue btn"><i class='fas fa-plus'></i></button>
                     </div>
                 </div>
             </div>
             <div id="customForm">
-                <div class="contentItems">
-                    --ADD CONTENT--
+                <div id="null" class="text-center">
+                    <h5>
+                        </h>----ADD CONTENT----</h5>
                 </div>
             </div>
 
             <div class="btn-center">
-                <button class="btn btn-success" onclick="submit()">Submit</button>
+                <button class="btn btn-success" onclick="submit()">Preview </button>
             </div>
             <!-- <a href="preview.html" target="_blank">Preview</a> -->
-    
+
         </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+        const url = "/user/form/create";
+    </script>
     <script src="/js/template.js"></script>
     <script type="text/javascript">
-        window.onload = function () {
 
-           
+
+        window.onload = function() {
+
 
             var t = new Template();
+            t.setBackgroundColor("#FFD1EC");
             t.setTitle("Feedback form");
-            t.setDescription("Get feedback for your ... whatever");
-            t.setBackgroundColor("#F7DC6F");
-            t.set("What's your name ?", "text", false);
-            t.set("What's your email ?", "text", false);
-            t.set("When did you attended our event ?", "date", false);
-            t.set("Your feedback", "textarea", false);
+            t.setDescription("This is a template for a feedback form.");
+            t.set("Name", "text", true);
+            t.set("Email", "text", true);
+            t.set("Your feedback", "textarea", "true");
             t.render();
 
         }
+
     </script>
 </body>
 
