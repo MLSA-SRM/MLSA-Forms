@@ -5,7 +5,7 @@
 It is a custom form generator brought to you by the [Microsoft Learn Student Ambassadors SRM](https://msclubsrm.in) which helps you to create different types of forms in a creative manner and deploy them. You can build forms either by using existing templates or you can create your own.
 
 ## Tech Stack
-- Frontend: HTML/CSS/Bootstrap/JS
+- Frontend: HTML/CSS/Bootstrap/Materialize/JS
 - Backend: NodeJS
 
 ## Quick Start
