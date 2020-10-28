@@ -2,7 +2,7 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/MLSA-SRM/Transport-Mail-Automation)&nbsp;
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/MLSA-SRM/Transport-Mail-Automation)&nbsp;
 
-A Custom form generator used to create forms to cater to specific needs.
+A Custom form generator used to create forms to cater to specific needs.Here you can build the forms using 
 
 ## Tech Stack
 - Frontend: HTML/CSS/Bootstrap/JS
